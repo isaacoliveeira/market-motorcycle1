@@ -1,0 +1,22 @@
+package src.repository;
+import java.util.ArrayList;
+import java.util.List;
+import src.model.User;
+
+public class UserRepository {
+    List<User> users = new ArrayList<>();
+
+    public void addUser(User user) throws Exception{
+        if(users.contains(user)){
+            throw new Exception("USUÁRIO JÁ EXISTE"); 
+        } 
+        users.add(user);   
+    }
+
+    public void removeUser(User user) throws Exception{
+        if (!users.contains(user)) {
+            throw new Exception("USUÁRIO NÃO ENCONTRADO"); 
+        }
+        users.remove(user);
+    }
+}

@@ -6,6 +6,6 @@ import src.controller.profile.ProfileUsername;
 
 
 public interface ProfileInterface {
-    public void Register(ProfileUsername username, ProfileName name, ProfilePassword password);
+    public void Register(ProfileName name, ProfileUsername username, ProfilePassword password);
     public boolean login(ProfileUsername username, ProfilePassword password);
 }
