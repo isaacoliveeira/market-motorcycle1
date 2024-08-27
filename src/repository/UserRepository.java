@@ -19,4 +19,21 @@ public class UserRepository {
         }
         users.remove(user);
     }
+
+    public void listAllUsers(User user) throws Exception {
+        if (users.isEmpty()) {
+            throw new Exception("NÃO POSSUI USUÁRIOS CADASTRADOS");
+        }
+        for (User users : users) {
+            System.out.println(users);
+        }
+    }
+
+    public void searchUser(User user) throws Exception {
+        if (!users.contains(user)){
+            throw new Exception("USUÁRIO NÃO EXISTE");
+        }
+        user.toString();
+    }
+
 }
