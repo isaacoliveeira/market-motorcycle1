@@ -20,7 +20,7 @@ public class UserRepository {
         users.remove(user);
     }
 
-    public void listAllUsers(User user) throws Exception {
+    public void listAllUsers() throws Exception {
         if (users.isEmpty()) {
             throw new Exception("NÃO POSSUI USUÁRIOS CADASTRADOS");
         }

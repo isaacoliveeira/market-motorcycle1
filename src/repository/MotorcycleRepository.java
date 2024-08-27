@@ -23,12 +23,20 @@ public class MotorcycleRepository {
             motorcycles.remove(motorcycle);
         }
 
-        
+        public void listAllMotorcycles() throws Exception {
+        if (motorcycles.isEmpty()) {
+            throw new Exception("NÃO POSSUI MOTOCICLETAS CADASTRADAS");
+        }
+        for (Motorcycle motorcycles : motorcycles) {
+            System.out.println(motorcycles);
+            }
+        }
 
+        public void searchMotorcycle(Motorcycle motorcycle) throws Exception {
+            if (!motorcycles.contains(motorcycle)){
+                throw new Exception("MOTO NÃO EXISTE");
+            }
+            motorcycle.toString();
+        }
+    }
 
-
-
-
-
-    
-}
