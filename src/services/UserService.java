@@ -19,4 +19,9 @@ public class UserService implements ProfileInterface{
         
         throw new UnsupportedOperationException("Unimplemented method 'login'");
     }
+
+    @Override
+    public void update(ProfileUsername username) {
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    }
 }
