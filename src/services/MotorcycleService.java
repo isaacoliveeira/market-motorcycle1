@@ -6,29 +6,40 @@ import src.repository.MotorcycleRepository;
 
 public class MotorcycleService implements MotorcycleActionsInterface {
 
+    private MotorcycleRepository repository;
+
+    public MotorcycleService(MotorcycleRepository repository){
+        this.repository = repository;
+    }
+
     @Override
     public void register(int id,String marca, String modelo, int cilindradas, String categoria, int ano) {
-        Motorcycle motorcycle = new Motorcycle(id,marca, modelo, cilindradas , categoria, ano); 
+        Motorcycle motorcycle = new Motorcycle(id,marca, modelo, cilindradas , categoria, ano);
+        repository.addMotorcycle(motorcycle);
     }
 
     @Override
     public void remove(int id) {
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        repository.removeMotorcycle(id);
     }
 
     @Override
-    public void update() {
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public void update(int id ,String marca, String modelo, int cilindradas, String categoria, int ano) {
+        repository.update(id, marca, modelo, cilindradas, categoria, ano);
     }
 
     @Override
     public void show() {
-        throw new UnsupportedOperationException("Unimplemented method 'show'");
+        repository.listAllMotorcycles();
     }
 
     @Override
-    public void search() {
-        throw new UnsupportedOperationException("Unimplemented method 'search'");
+    public void search(int id) {
+        Motorcycle motorcycle = repository.search(id);
+        if( motorcycle != null) {
+            System.out.println(motorcycle.toString());
+        }
+        throw new IllegalArgumentException("MOTO NÃO ENCONTRADA");
     }
-    
+
 }
