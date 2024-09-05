@@ -1,9 +1,9 @@
 package src.validates;
 
-import src.controller.profile.ProfilePassword;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import src.user.models.ProfilePassword;
 
 public class ValidatePassword {
     static Pattern pattern = Pattern.compile("[a-zA-Z]{6,}[1-9]{2,}");

@@ -1,8 +1,8 @@
-package src.services;
+package src.motorcycle.service;
 
 import src.interfaces.MotorcycleActionsInterface;
-import src.model.Motorcycle;
-import src.repository.MotorcycleRepository;
+import src.motorcycle.models.Motorcycle;
+import src.motorcycle.repository.MotorcycleRepository;
 
 public class MotorcycleService implements MotorcycleActionsInterface {
 

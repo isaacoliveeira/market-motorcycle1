@@ -1,4 +1,4 @@
-package src.controller.profile;
+package src.user.models;
 
 import src.validates.ValidatePassword;
 

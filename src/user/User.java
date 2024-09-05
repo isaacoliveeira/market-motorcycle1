@@ -1,8 +1,8 @@
-package src.model;
+package src.user;
 
-import src.controller.profile.ProfileName;
-import src.controller.profile.ProfilePassword;
-import src.controller.profile.ProfileUsername;
+import src.user.models.ProfileName;
+import src.user.models.ProfilePassword;
+import src.user.models.ProfileUsername;
 
 public class User{
     private ProfileName name;
@@ -19,5 +19,4 @@ public class User{
     public String toString() {
         return "User [name=" + name + ", username=" + username + "]";
     }
-
 }

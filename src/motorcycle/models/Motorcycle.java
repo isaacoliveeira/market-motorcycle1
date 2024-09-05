@@ -1,4 +1,4 @@
-package src.model;
+package src.motorcycle.models;
 
 public class Motorcycle{
 
@@ -18,7 +18,6 @@ public class Motorcycle{
         this.ano = ano;
     }
 
-    
     public void setId(int id) {
         this.id = id;
     }

@@ -1,10 +1,10 @@
-package src.repository;
+package src.motorcycle.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import src.model.Motorcycle;
+import src.motorcycle.models.Motorcycle;
 
 public class MotorcycleRepository {
 
@@ -77,5 +77,7 @@ public class MotorcycleRepository {
             }
             throw new IllegalArgumentException("MOTO NÃO EXISTE");
         }
+
+        
     }
 

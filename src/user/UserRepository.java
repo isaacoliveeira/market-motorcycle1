@@ -1,7 +1,6 @@
-package src.repository;
+package src.user;
 import java.util.ArrayList;
 import java.util.List;
-import src.model.User;
 
 public class UserRepository {
     List<User> users = new ArrayList<>();

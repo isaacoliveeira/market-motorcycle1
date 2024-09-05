@@ -1,8 +1,8 @@
 package src.interfaces;
 
-import src.controller.profile.ProfileName;
-import src.controller.profile.ProfilePassword;
-import src.controller.profile.ProfileUsername;
+import src.user.models.ProfileName;
+import src.user.models.ProfilePassword;
+import src.user.models.ProfileUsername;
 
 
 public interface ProfileInterface {

@@ -1,4 +1,4 @@
-package src.controller.profile;
+package src.user.models;
 
 public class ProfileUsername {
     private String userName;
