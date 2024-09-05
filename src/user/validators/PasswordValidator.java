@@ -1,11 +1,11 @@
-package src.validates;
+package src.user.validators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import src.user.models.ProfilePassword;
 
-public class ValidatePassword {
+public class PasswordValidator {
     static Pattern pattern = Pattern.compile("[a-zA-Z]{6,}[1-9]{2,}");
 
     public static boolean validatePassword(ProfilePassword profilePassword) {

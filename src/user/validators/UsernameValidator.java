@@ -1,11 +1,11 @@
-package src.validates;
+package src.user.validators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import src.user.models.ProfileUsername;
 
-public class ValidateUsername {
+public class UsernameValidator {
     static Pattern pattern = Pattern.compile("[a-z]{4,}[0-9]{0,6}");
 
     public static boolean validateUserName(ProfileUsername profileUsername) {

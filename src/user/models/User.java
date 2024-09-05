@@ -1,8 +1,4 @@
-package src.user;
-
-import src.user.models.ProfileName;
-import src.user.models.ProfilePassword;
-import src.user.models.ProfileUsername;
+package src.user.models;
 
 public class User{
     private ProfileName name;
