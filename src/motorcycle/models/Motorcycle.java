@@ -35,7 +35,7 @@ public class Motorcycle{
         this.cylinder = cylinder;
     }
 
-    public void setCylinderyear(Year year) {
+    public void setYear(Year year) {
         this.year = year;
     }
 

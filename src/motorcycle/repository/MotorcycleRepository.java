@@ -38,7 +38,7 @@ public class MotorcycleRepository {
 
         public void update(Brand brand, Model model, CylinderCapacity cylinder, Year year, Km km) {
             Motorcycle motorcycleToUpdate = null;
-
+            int id = 2; //TEM QUE CONSEEEEERTAAAAAAAAAAAAAAAAAAAAAR
             for (Motorcycle motorcycle : motorcycles) {
                 if (motorcycle.getId() == id) {
                     motorcycleToUpdate = motorcycle;
@@ -50,9 +50,9 @@ public class MotorcycleRepository {
                 throw new IllegalArgumentException("NÃO FOI POSSÍVEL ENCONTRAR MOTO COM O ID DADO");
             }
 
-            motorcycleToUpdate.setmodel(model);
-            motorcycleToUpdate.setcylinder(cylinder);
-            motorcycleToUpdate.setAno(ano);
+            motorcycleToUpdate.setModel(model);
+            motorcycleToUpdate.setCylinder(cylinder);
+            motorcycleToUpdate.setYear(year);
 
         }
         
