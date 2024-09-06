@@ -1,49 +1,50 @@
 package src.motorcycle.models;
 
+
 public class Motorcycle{
 
     private int id;
-    private String marca;
-    private String modelo;
-    private int cilindradas;
-    private String categoria;
-    private int ano;
+    private Brand brand;
+    private Model model;
+    private CylinderCapacity cylinder;
+    private Year year;
+    private Km km;
 
-    public Motorcycle(int id ,String marca, String modelo, int cilindradas, String categoria, int ano) {
-        this.id = id;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.cilindradas = cilindradas;
-        this.categoria = categoria;
-        this.ano = ano;
+    public Motorcycle(Brand brand, Model model, CylinderCapacity cylinder, Year year, Km km) {
+        this.brand = brand;
+        this.model = model;
+        this.cylinder = cylinder;
+        this.year = year;
+        this.km = km;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setModel(Brand brand) {
+        this.brand = brand;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+
+    public void setModel(Model model) {
+        this.model = model;
     }
 
-    public void setCilindradas(int cilindradas) {
-        this.cilindradas = cilindradas;
+    public void setCylinder(CylinderCapacity cylinder) {
+        this.cylinder = cylinder;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setCylinderyear(Year year) {
+        this.year = year;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setKm(Km km) {
+        this.km = km;
     }
 
     public static boolean equalsId(Motorcycle motorcycle, int id) {
@@ -65,8 +66,8 @@ public class Motorcycle{
 
     @Override
     public String toString() {
-        return "Motorcycle [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", cilindradas=" + cilindradas
-                + ", categoria=" + categoria + ", ano=" + ano + "]";
+        return "Motorcycle [id=" + id + ", Model=" + ", model=" + model + ", cylinder=" + cylinder
+                + ", year=" + year + "]";
     }
 
     

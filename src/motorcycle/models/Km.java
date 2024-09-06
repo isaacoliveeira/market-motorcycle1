@@ -1,9 +1,9 @@
 package src.motorcycle.models;
 
-public class MotorcycleKm {
+public class Km {
     public int km;
 
-    public MotorcycleKm(int km) {
+    public Km(int km) {
         this.km = km;
     }
 }

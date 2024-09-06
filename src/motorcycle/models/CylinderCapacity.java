@@ -1,9 +1,9 @@
 package src.motorcycle.models;
 
-public class MotorcycleCylinderCapacity {
+public class CylinderCapacity {
     private String capacity;
 
-    public MotorcycleCylinderCapacity(String capacity) {
+    public CylinderCapacity(String capacity) {
         this.capacity = capacity;
     }
 

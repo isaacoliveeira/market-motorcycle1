@@ -1,12 +1,9 @@
 package src.motorcycle.models;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class MotorcycleModel {
+public class Model {
     private String model;
     
-    public MotorcycleModel(String model) {
+    public Model(String model) {
         this.model = model; 
     }
 

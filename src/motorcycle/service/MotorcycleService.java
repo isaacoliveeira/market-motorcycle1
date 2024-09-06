@@ -1,7 +1,7 @@
 package src.motorcycle.service;
 
 import src.interfaces.MotorcycleActionsInterface;
-import src.motorcycle.models.Motorcycle;
+import src.motorcycle.models.*;
 import src.motorcycle.repository.MotorcycleRepository;
 
 public class MotorcycleService implements MotorcycleActionsInterface {
@@ -13,8 +13,8 @@ public class MotorcycleService implements MotorcycleActionsInterface {
     }
 
     @Override
-    public void register(int id,String marca, String modelo, int cilindradas, String categoria, int ano) {
-        Motorcycle motorcycle = new Motorcycle(id,marca, modelo, cilindradas , categoria, ano);
+    public void register(Brand brand, Model model, CylinderCapacity cylinderCapacity,Year year, Km km) {
+        Motorcycle motorcycle = new Motorcycle(brand, model, cylinderCapacity, year, km);
         repository.addMotorcycle(motorcycle);
     }
 
@@ -24,8 +24,8 @@ public class MotorcycleService implements MotorcycleActionsInterface {
     }
 
     @Override
-    public void update(int id ,String marca, String modelo, int cilindradas, String categoria, int ano) {
-        repository.update(id, marca, modelo, cilindradas, categoria, ano);
+    public void update(Brand brand, Model model, CylinderCapacity cylinderCapacity, Year year, Km km) {
+        repository.update(brand, model, cylinderCapacity, year, km);
     }
 
     @Override
@@ -40,6 +40,16 @@ public class MotorcycleService implements MotorcycleActionsInterface {
             System.out.println(motorcycle.toString());
         }
         throw new IllegalArgumentException("MOTO NÃO ENCONTRADA");
+    }
+
+    @Override
+    public void register(Brand brand, Model model, CylinderCapacity cylinderCapacity, java.time.Year year, Km Km) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void update(Brand brand, Model model, CylinderCapacity cylinderCapacity, java.time.Year year, Km Km) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

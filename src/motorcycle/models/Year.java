@@ -3,10 +3,10 @@ package src.motorcycle.models;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MotorcycleYear {
+public class Year {
     private String year;
     
-    public MotorcycleYear(String year) {
+    public Year(String year) {
         this.year = year;
     }
 
@@ -19,7 +19,7 @@ public class MotorcycleYear {
     }
 
     static Pattern pattern = Pattern.compile("[0-9]{4}");
-    public static boolean validateName(MotorcycleYear year){
+    public static boolean validateName(Year year){
 
         Matcher matcher = pattern.matcher(year.toString());
         return matcher.find();

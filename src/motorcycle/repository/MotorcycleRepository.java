@@ -2,9 +2,7 @@ package src.motorcycle.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import src.motorcycle.models.Motorcycle;
+import src.motorcycle.models.*;
 
 public class MotorcycleRepository {
 
@@ -38,7 +36,7 @@ public class MotorcycleRepository {
             motorcycles.remove(toRemove);
         }
 
-        public void update(int id, String marca, String modelo, int cilindradas, String categoria, int ano) {
+        public void update(Brand brand, Model model, CylinderCapacity cylinder, Year year, Km km) {
             Motorcycle motorcycleToUpdate = null;
 
             for (Motorcycle motorcycle : motorcycles) {
@@ -52,10 +50,8 @@ public class MotorcycleRepository {
                 throw new IllegalArgumentException("NÃO FOI POSSÍVEL ENCONTRAR MOTO COM O ID DADO");
             }
 
-            motorcycleToUpdate.setMarca(marca);
-            motorcycleToUpdate.setModelo(modelo);
-            motorcycleToUpdate.setCilindradas(cilindradas);
-            motorcycleToUpdate.setCategoria(categoria);
+            motorcycleToUpdate.setmodel(model);
+            motorcycleToUpdate.setcylinder(cylinder);
             motorcycleToUpdate.setAno(ano);
 
         }
