@@ -69,6 +69,7 @@ public class Motorcycle{
     public Km getKm() {
         return km;
     }
+    
 
     public static boolean equalsId(Motorcycle motorcycle, int id) {
         return motorcycle.id == id;

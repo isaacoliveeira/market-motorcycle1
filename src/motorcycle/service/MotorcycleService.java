@@ -24,8 +24,8 @@ public class MotorcycleService implements MotorcycleActionsInterface {
     }
 
     @Override
-    public void remove(int id) {
-        repository.removeMotorcycle(id);
+    public void remove(Brand brand) {
+        repository.removeMotorcycle(brand);
     }
 
     @Override

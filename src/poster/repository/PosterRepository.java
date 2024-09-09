@@ -13,9 +13,9 @@ public class PosterRepository {
 
     public void addPost(Post post) {
         if (posters.contains(post)) {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("POST JÁ EXISTE");
         }
-
+        
     }
 
     public void removePost(Post post) {

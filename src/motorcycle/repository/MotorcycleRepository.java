@@ -27,30 +27,22 @@ public class MotorcycleRepository {
         }
 
 
-        @SuppressWarnings("unlikely-arg-type") //mostrou isso pq estou removendo um int sendo que motorcycle é do tipo motorcycle, é um aviso, se algum de voces
-        // conseguir fazer de outro jeito pode fazer.
-        public void removeMotorcycle(int id)  {
-            Motorcycle toRemove = null;
-            for (Motorcycle motorcycle : motorcycles) {
-                if (motorcycle.equals(id)) {
-                    toRemove = motorcycle;
-                    break;
-                }
+        public void removeMotorcycle(Brand brand)  {
+            if (!motorcycles.contains(brand)) {
+                throw new IllegalArgumentException("MOTO NÃO ENCONTRADA");
             }
-            if (toRemove == null) {
-                throw new IllegalArgumentException("A MOTO NÃO EXISTE");
-            }
-            motorcycles.remove(toRemove);
+            motorcycles.remove(brand);
         }
 
-        public void update(Brand brand, Model model, CylinderCapacity cylinder, Year year, Km km) {
+        public void update(int id,Brand brand, Model model, CylinderCapacity cylinder, Year year, Km km) {
             Motorcycle motorcycleToUpdate = null;
-            int id = 2; //TEM QUE CONSEEEEERTAAAAAAAAAAAAAAAAAAAAAR
             for (Motorcycle motorcycle : motorcycles) {
                 if (motorcycle.getId() == id) {
                     motorcycleToUpdate = motorcycle;
                     break;
                 }
+
+                
             }
             
             if (motorcycleToUpdate == null) {
@@ -60,6 +52,7 @@ public class MotorcycleRepository {
             motorcycleToUpdate.setModel(model);
             motorcycleToUpdate.setCylinder(cylinder);
             motorcycleToUpdate.setYear(year);
+            motorcycleToUpdate.setKm(km);
 
         }
         
@@ -72,15 +65,13 @@ public class MotorcycleRepository {
             }
         }
         
-        public Motorcycle search(int id) {
+        public Motorcycle search(Brand brand) {
             for (Motorcycle motorcycle : motorcycles) {
-                if (motorcycle.getId() == id) {
+                if (motorcycle.getBrand().equals(brand)) {
                     return motorcycle;
                 }
             }
             throw new IllegalArgumentException("MOTO NÃO EXISTE");
         }
-
-        
     }
 

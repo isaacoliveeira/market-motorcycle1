@@ -17,7 +17,7 @@ public class PosterService implements PostInterface {
 
     @Override
     public void addPost(Title title, Price price, Location location) {
-        Post post = new Post(title, price, null, location);
+        Post post = new Post(title, price, location);
         posterRepository.addPost(post);
     }
 
