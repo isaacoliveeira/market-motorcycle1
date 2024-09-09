@@ -1,10 +1,10 @@
-package src.interfaces;
+package interfaces;
 
-import java.time.Year;
-import src.motorcycle.models.Brand;
-import src.motorcycle.models.CylinderCapacity;
-import src.motorcycle.models.Km;
-import src.motorcycle.models.Model;
+import motorcycle.models.Year;
+import motorcycle.models.Brand;
+import motorcycle.models.CylinderCapacity;
+import motorcycle.models.Km;
+import motorcycle.models.Model;
 
 public interface MotorcycleActionsInterface {
     public void register(Brand brand, Model model, CylinderCapacity cylinderCapacity,Year year, Km Km);

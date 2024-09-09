@@ -1,8 +1,15 @@
-package src.motorcycle.repository;
+package motorcycle.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import src.motorcycle.models.*;
+
+import motorcycle.models.Motorcycle;
+import motorcycle.models.CylinderCapacity;
+import motorcycle.models.Year;
+import motorcycle.models.Brand;
+import motorcycle.models.Km;
+import motorcycle.models.Model;
+
 
 public class MotorcycleRepository {
 

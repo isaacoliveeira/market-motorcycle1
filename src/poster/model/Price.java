@@ -1,4 +1,4 @@
-package src.poster.model;
+package poster.model;
 
 public class Price {
     private int price;

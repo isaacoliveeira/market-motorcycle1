@@ -1,6 +1,4 @@
-package src.user.models;
-
-import src.validates.ValidatePassword;
+package user.models;
 
 public class ProfilePassword {
     private String password;
@@ -8,7 +6,7 @@ public class ProfilePassword {
         this.password = password.toString();
     }
     public boolean validateSenha(ProfilePassword profilePassword){
-        ValidatePassword.validatePassword(profilePassword);
+        profilePassword.validateSenha(profilePassword);
         return true;
     }
 }

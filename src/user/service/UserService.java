@@ -1,10 +1,10 @@
-package src.user.service;
+package user.service;
 
-import src.interfaces.ProfileInterface;
-import src.user.User;
-import src.user.models.ProfileName;
-import src.user.models.ProfilePassword;
-import src.user.models.ProfileUsername;
+import interfaces.ProfileInterface;
+import user.models.User;
+import user.models.ProfileName;
+import user.models.ProfilePassword;
+import user.models.ProfileUsername;
 
 public class UserService implements ProfileInterface{
 

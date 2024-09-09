@@ -1,8 +1,13 @@
-package src.motorcycle.service;
+package motorcycle.service;
 
-import src.interfaces.MotorcycleActionsInterface;
-import src.motorcycle.models.*;
-import src.motorcycle.repository.MotorcycleRepository;
+import interfaces.MotorcycleActionsInterface;
+import motorcycle.models.Brand;
+import motorcycle.models.CylinderCapacity;
+import motorcycle.models.Km;
+import motorcycle.models.Model;
+import motorcycle.models.Motorcycle;
+import motorcycle.models.Year;
+import motorcycle.repository.MotorcycleRepository;
 
 public class MotorcycleService implements MotorcycleActionsInterface {
 
@@ -42,14 +47,6 @@ public class MotorcycleService implements MotorcycleActionsInterface {
         throw new IllegalArgumentException("MOTO NÃO ENCONTRADA");
     }
 
-    @Override
-    public void register(Brand brand, Model model, CylinderCapacity cylinderCapacity, java.time.Year year, Km Km) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
-    @Override
-    public void update(Brand brand, Model model, CylinderCapacity cylinderCapacity, java.time.Year year, Km Km) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
 }
