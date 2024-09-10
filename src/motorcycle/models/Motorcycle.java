@@ -1,4 +1,4 @@
-package src.motorcycle.models;
+package motorcycle.models;
 
 
 public class Motorcycle{
@@ -49,6 +49,36 @@ public class Motorcycle{
 
     public static boolean equalsId(Motorcycle motorcycle, int id) {
         return motorcycle.id == id;
+    }
+
+    
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public CylinderCapacity getCylinder() {
+        return cylinder;
+    }
+
+    public Year getYear() {
+        return year;
+    }
+
+    public void setYear(Year year) {
+        this.year = year;
+    }
+
+    public Km getKm() {
+        return km;
     }
 
     @Override

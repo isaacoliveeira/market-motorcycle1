@@ -1,4 +1,4 @@
-package src.poster.model;
+package poster.model;
 
 import java.sql.Date;
 
@@ -9,10 +9,9 @@ public class Post {
     private Location local;
     private Date date;
 
-    public Post(Title title, Price price, Date date, Location local){
+    public Post(Title title, Price price, Location local){
         this.title = title;
         this.price = price;
-        this.date = date;
         this.local = local;
     }    
 }

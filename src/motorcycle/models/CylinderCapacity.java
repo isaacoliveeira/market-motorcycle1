@@ -1,4 +1,4 @@
-package src.motorcycle.models;
+package motorcycle.models;
 
 public class CylinderCapacity {
     private String capacity;
