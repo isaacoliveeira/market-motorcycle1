@@ -1,8 +1,9 @@
-package src.motorcycle.repository;
+package motorcycle.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import src.motorcycle.models.*;
+
+import motorcycle.models.Motorcycle;
 
 public class MotorcycleRepository {
 
@@ -20,40 +21,19 @@ public class MotorcycleRepository {
         }
 
 
-        @SuppressWarnings("unlikely-arg-type") //mostrou isso pq estou removendo um int sendo que motorcycle é do tipo motorcycle, é um aviso, se algum de voces
-        // conseguir fazer de outro jeito pode fazer.
-        public void removeMotorcycle(int id)  {
-            Motorcycle toRemove = null;
-            for (Motorcycle motorcycle : motorcycles) {
-                if (motorcycle.equals(id)) {
-                    toRemove = motorcycle;
-                    break;
-                }
+        public void removeMotorcycle(Motorcycle motorcycle)  {
+            if (!motorcycles.contains(motorcycle)) {
+                throw new IllegalArgumentException("MOTO NÃO ENCONTRADA");
             }
-            if (toRemove == null) {
-                throw new IllegalArgumentException("A MOTO NÃO EXISTE");
-            }
-            motorcycles.remove(toRemove);
+            motorcycles.remove(motorcycle);
         }
 
-        public void update(Brand brand, Model model, CylinderCapacity cylinder, Year year, Km km) {
-            Motorcycle motorcycleToUpdate = null;
-
-            for (Motorcycle motorcycle : motorcycles) {
-                if (motorcycle.getId() == id) {
-                    motorcycleToUpdate = motorcycle;
-                    break;
-                }
+        public void update(Motorcycle oldMotorcycle, Motorcycle newMotorcycle) {
+            int index = motorcycles.indexOf(oldMotorcycle);
+            if (index != -1) {
+                motorcycles.set(index, newMotorcycle);
             }
-            
-            if (motorcycleToUpdate == null) {
-                throw new IllegalArgumentException("NÃO FOI POSSÍVEL ENCONTRAR MOTO COM O ID DADO");
-            }
-
-            motorcycleToUpdate.setmodel(model);
-            motorcycleToUpdate.setcylinder(cylinder);
-            motorcycleToUpdate.setAno(ano);
-
+            throw new IllegalArgumentException("Moto não encontrada");
         }
         
         public void listAllMotorcycles() {
@@ -65,15 +45,9 @@ public class MotorcycleRepository {
             }
         }
         
-        public Motorcycle search(int id) {
-            for (Motorcycle motorcycle : motorcycles) {
-                if (motorcycle.getId() == id) {
-                    return motorcycle;
-                }
-            }
-            throw new IllegalArgumentException("MOTO NÃO EXISTE");
-        }
 
-        
+        public boolean contains(Motorcycle motorcycle) {
+            return motorcycles.contains(motorcycle);
+        }
     }
 

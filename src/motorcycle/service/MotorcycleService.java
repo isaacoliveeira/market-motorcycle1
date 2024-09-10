@@ -1,8 +1,13 @@
-package src.motorcycle.service;
+package motorcycle.service;
 
-import src.interfaces.MotorcycleActionsInterface;
-import src.motorcycle.models.*;
-import src.motorcycle.repository.MotorcycleRepository;
+import interfaces.MotorcycleActionsInterface;
+import motorcycle.models.Brand;
+import motorcycle.models.CylinderCapacity;
+import motorcycle.models.Km;
+import motorcycle.models.Model;
+import motorcycle.models.Motorcycle;
+import motorcycle.models.Year;
+import motorcycle.repository.MotorcycleRepository;
 
 public class MotorcycleService implements MotorcycleActionsInterface {
 
@@ -19,37 +24,21 @@ public class MotorcycleService implements MotorcycleActionsInterface {
     }
 
     @Override
-    public void remove(int id) {
-        repository.removeMotorcycle(id);
+    public void remove(Brand brand, Model model, CylinderCapacity cylinderCapacity,Year year, Km km) {
+        Motorcycle motorcycle = new Motorcycle(brand, model, cylinderCapacity, year, km);
+        repository.removeMotorcycle(motorcycle);
     }
 
     @Override
-    public void update(Brand brand, Model model, CylinderCapacity cylinderCapacity, Year year, Km km) {
-        repository.update(brand, model, cylinderCapacity, year, km);
+    public void update(Motorcycle oldMotorcycle, Motorcycle newMotorcycle) {
+        if (repository.contains(oldMotorcycle)) {
+            repository.update(oldMotorcycle, newMotorcycle);
+        }
+        throw new IllegalArgumentException("Moto não encontrada");
     }
 
     @Override
     public void show() {
         repository.listAllMotorcycles();
     }
-
-    @Override
-    public void search(int id) {
-        Motorcycle motorcycle = repository.search(id);
-        if( motorcycle != null) {
-            System.out.println(motorcycle.toString());
-        }
-        throw new IllegalArgumentException("MOTO NÃO ENCONTRADA");
-    }
-
-    @Override
-    public void register(Brand brand, Model model, CylinderCapacity cylinderCapacity, java.time.Year year, Km Km) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void update(Brand brand, Model model, CylinderCapacity cylinderCapacity, java.time.Year year, Km Km) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
 }
