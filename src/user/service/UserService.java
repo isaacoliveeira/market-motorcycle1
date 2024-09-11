@@ -1,26 +1,55 @@
 package user.service;
 
-import interfaces.ProfileInterface;
-import user.models.User;
-import user.models.ProfileName;
 import user.models.ProfilePassword;
-import user.models.ProfileUsername;
+import user.models.User;
+import user.repository.UserRepository;
+import user.validators.NameValidator;
+import user.validators.PasswordValidator;
+import user.validators.UsernameValidator;
 
-public class UserService implements ProfileInterface{
+public class UserService {
 
-    @Override
-    public void Register(ProfileName name, ProfileUsername username, ProfilePassword password) {
-        User user = new User(name, username, password);
+    private UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    @Override
-    public boolean login(ProfileUsername username, ProfilePassword password) {
+    public void addUser(User user) throws Exception {
         
-        throw new UnsupportedOperationException("Unimplemented method 'login'");
+        if (!NameValidator.validateName(user.getName())) {
+            throw new Exception("Nome inválido.");
+        }
+        if (!UsernameValidator.validateUserName(user.getUsername())) {
+            throw new Exception("Nome de usuário inválido.");
+        }
+        if (!PasswordValidator.validatePassword(user.getPassword())) {
+            throw new Exception("Senha inválida.");
+        }
+        userRepository.addUser(user);
     }
 
-    @Override
-    public void update(ProfileUsername username) {
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public void removeUser(String username) throws Exception {
+        User user = userRepository.searchUser(username); // Verifica se o usuário existe
+        if (user != null) {
+            userRepository.removeUser(user);
+        }
+    }
+
+    public User searchUser(String username) throws Exception {
+        return userRepository.searchUser(username);
+    }
+
+    public void editUser(String username, User newUserData) throws Exception {
+        // Valida os novos dados do usuário
+        if (!NameValidator.validateName(newUserData.getName())) {
+            throw new Exception("Nome inválido.");
+        }
+        if (!PasswordValidator.validatePassword(newUserData.getPassword())) {
+            throw new Exception("Senha inválida.");
+        }
+        User existingUser = userRepository.searchUser(username);
+        userRepository.removeUser(existingUser);
+        userRepository.addUser(newUserData);
     }
 }

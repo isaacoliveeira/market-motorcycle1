@@ -37,12 +37,12 @@ public class UserRepository {
 
     //Usuário só poderá atualizar suas informações caso esteja logado, se estiver logado não há necessidade de fazer verificação de senha pois ja foi feita
     public void updateUser(String username, ProfileName newName, ProfileUsername newUsername, ProfilePassword newPassword) throws Exception {
-    User user = searchUser(username);
-    if (user != null) {
-        if (newName != null) user.setName(newName);
-        if (newUsername != null) user.setUsername(newUsername);
-        if (newPassword != null) user.setPassword(newPassword);
-    }
+        User user = searchUser(username);
+        if (user != null) {
+            if (newName != null) user.setName(newName);
+            if (newUsername != null) user.setUsername(newUsername);
+            if (newPassword != null) user.setPassword(newPassword);
+        }
 }
 
 }
