@@ -41,10 +41,10 @@ public class UserRepository {
         user.update(newName, newUsername, newPassword);
     }
 
-    public User login(ProfileUsername username, ProfilePassword password) throws Exception {
+    public Boolean login(ProfileUsername username, ProfilePassword password) throws Exception {
         User user = searchUser(username);
         if (user.checkPassword(password)) {
-            return user;
+            return true;
         } else {
             throw new Exception("Senha inválida");
         }

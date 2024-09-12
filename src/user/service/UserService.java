@@ -2,7 +2,9 @@ package user.service;
 
 import user.models.*;
 import user.repository.UserRepository;
+import user.validators.PasswordValidator;
 import user.validators.UserValidator;
+import user.validators.UsernameValidator;
 
 public class UserService {
 
@@ -42,5 +44,12 @@ public class UserService {
         } else {
             throw new Exception("Usuário não encontrado.");
         }
+    }
+
+    public boolean login(ProfileUsername username, ProfilePassword password) throws Exception {
+        if (!UsernameValidator.validateUserName(username) || !PasswordValidator.validatePassword(password)) {
+            throw new Exception("Nome de usuário ou senha inválidos.");
+        }
+        return userRepository.login(username, password);
     }
 }
