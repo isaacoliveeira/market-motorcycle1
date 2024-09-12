@@ -1,11 +1,8 @@
 package user.service;
 
-import user.models.ProfilePassword;
-import user.models.User;
+import user.models.*;
 import user.repository.UserRepository;
-import user.validators.NameValidator;
-import user.validators.PasswordValidator;
-import user.validators.UsernameValidator;
+import user.validators.UserValidator;
 
 public class UserService {
 
@@ -16,40 +13,34 @@ public class UserService {
     }
 
     public void addUser(User user) throws Exception {
-        
-        if (!NameValidator.validateName(user.getName())) {
-            throw new Exception("Nome inválido.");
-        }
-        if (!UsernameValidator.validateUserName(user.getUsername())) {
-            throw new Exception("Nome de usuário inválido.");
-        }
-        if (!PasswordValidator.validatePassword(user.getPassword())) {
-            throw new Exception("Senha inválida.");
+        if (!UserValidator.validate(user)) {
+            throw new Exception("Dados do usuário inválidos.");
         }
         userRepository.addUser(user);
     }
 
-    public void removeUser(String username) throws Exception {
+    public void removeUser(ProfileUsername username) throws Exception {
         User user = userRepository.searchUser(username); // Verifica se o usuário existe
         if (user != null) {
             userRepository.removeUser(user);
         }
     }
 
-    public User searchUser(String username) throws Exception {
+    public User searchUser(ProfileUsername username) throws Exception {
         return userRepository.searchUser(username);
     }
 
-    public void editUser(String username, User newUserData) throws Exception {
+    public void editUser(ProfileUsername username, User newUserData) throws Exception {
         // Valida os novos dados do usuário
-        if (!NameValidator.validateName(newUserData.getName())) {
-            throw new Exception("Nome inválido.");
-        }
-        if (!PasswordValidator.validatePassword(newUserData.getPassword())) {
-            throw new Exception("Senha inválida.");
+        if (!UserValidator.validate(newUserData)) {
+            throw new Exception("Dados do usuário inválidos.");
         }
         User existingUser = userRepository.searchUser(username);
-        userRepository.removeUser(existingUser);
-        userRepository.addUser(newUserData);
+        if (existingUser != null) {
+            userRepository.removeUser(existingUser);
+            userRepository.addUser(newUserData);
+        } else {
+            throw new Exception("Usuário não encontrado.");
+        }
     }
 }

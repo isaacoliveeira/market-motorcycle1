@@ -26,7 +26,7 @@ public class UserRepository {
         users.remove(user);
     }
 
-    public User searchUser(String username) throws Exception {
+    public User searchUser(ProfileUsername username) throws Exception {
         for(User user : users){
             if (user.getUsername().equals(username)){
                 return user;
@@ -34,9 +34,9 @@ public class UserRepository {
         }
         throw new Exception("Usuário não encontrado");
     }
-
+    
     //Usuário só poderá atualizar suas informações caso esteja logado, se estiver logado não há necessidade de fazer verificação de senha pois ja foi feita
-    public void updateUser(String username, ProfileName newName, ProfileUsername newUsername, ProfilePassword newPassword) throws Exception {
+    public void updateUser(ProfileUsername username, ProfileName newName, ProfileUsername newUsername, ProfilePassword newPassword) throws Exception {
         User user = searchUser(username);
         if (user != null) {
             if (newName != null) user.setName(newName);
