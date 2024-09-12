@@ -15,4 +15,8 @@ public class Title {
         this.title = title;
     }
 
+    @Override
+    public int hashCode() {
+        return title != null ? title.hashCode() : 0;
+    }
 }

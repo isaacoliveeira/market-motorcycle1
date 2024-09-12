@@ -1,5 +1,8 @@
 package interfaces;
 
+import java.util.List;
+
+import poster.model.Descrition;
 import poster.model.Location;
 import poster.model.Post;
 import poster.model.Price;
@@ -9,5 +12,6 @@ public interface PostInterface {
     void addPost(Title title, Price price, Location location, Descrition descrition);
     void removePost(Title title, Price price, Location location);
     void updatePost(Post oldPost, Post newPost);
-    void searchByTitle(Title title);
+    List<Post> searchByTitle(Title title);
+    void buy(Post post);
 }

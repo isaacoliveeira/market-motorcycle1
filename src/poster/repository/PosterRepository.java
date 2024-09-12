@@ -3,15 +3,16 @@ package poster.repository;
 import java.util.ArrayList;
 import java.util.List;
 import poster.model.Post;
+import poster.model.Title;
 
 public class PosterRepository {
-    List<Post> posters = new ArrayList<>();
+
+    private List<Post> posters;
 
     public PosterRepository() {
         this.posters = new ArrayList<>();
     }
 
-    //caso onde aparece um novo usuario, é necessario instaciar outra lista;
     public PosterRepository(List<Post> posters) {
         this.posters = posters != null ? posters : new ArrayList<>();
     }
@@ -30,48 +31,42 @@ public class PosterRepository {
         posters.remove(post);
     }
 
-    public void uptade(Post oldPost, Post newPost) {
+    public void update(Post oldPost, Post newPost) {
         int index = posters.indexOf(oldPost);
         if (index != -1) {
             posters.set(index, newPost);
+        } else {
+            throw new IllegalArgumentException("Post não encontrado");
         }
-        throw new IllegalArgumentException("Post não encontrado");
     }
 
     public boolean contains(Post post) {
         return posters.contains(post);
     }
 
-    public Post findPostByTitle(Title title) {
+    public List<Post> findPostsByTitle(Title title) {
+        List<Post> result = new ArrayList<>();
         for (Post post : posters) {
-            if(post.getTitle.equals(title)) {
-                return post;
+            if (post.getTitle().equals(title)) {
+                result.add(post);
             }
         }
-        return null;
+        return result;
     }
 
     public List<Post> getAllPosts() {
         return new ArrayList<>(posters);
     }
 
-    public List<Post> findPostsByLocation(Location location) {
-        List<Post> result = new ArrayList<>();
-        for (Post post : posters) {
-            if (post.getLocation().equals(location)) {
-                result.add(post);
-            }
+    public void buy(Post post) {
+        int index = posters.indexOf(post);
+        if (index == -1) {
+            Post postBuy = post.get(index);
+            postBuy.setSold(true);
+            posters.set(index, postBuy);
+            posters.remove(index);
+        } else {
+            throw new IllegalArgumentException("Moto não encontrada para venda");
         }
-        return result;
-    }
-
-    public List<Post> findPostsByPriceRange(Price minPrice, Price maxPrice) {
-        List<Post> result = new ArrayList<>();
-        for (Post post : posters) {
-            if (post.getPrice().compareTo(minPrice) >= 0 && post.getPrice().compareTo(maxPrice) <= 0) {
-                result.add(post);
-            }
-        }
-        return result;
     }
 }

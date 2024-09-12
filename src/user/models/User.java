@@ -4,13 +4,11 @@ public class User{
     private ProfileName name;
     private ProfileUsername username;
     private ProfilePassword password;
-    private Role role;
 
-    public User(ProfileName name, ProfileUsername username, ProfilePassword password, Role role){
+    public User(ProfileName name, ProfileUsername username, ProfilePassword password){
         this.name = name;
         this.username = username;
         this.password = password;
-        this.role = role;
     }
 
     public ProfileName getName() {
@@ -35,14 +33,6 @@ public class User{
 
     public void setPassword(ProfilePassword password) {
         this.password = password;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     @Override

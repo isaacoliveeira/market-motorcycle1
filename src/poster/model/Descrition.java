@@ -1,3 +1,5 @@
+package poster.model;
+
 public class Descrition {
     private String descrition;
 
@@ -11,8 +13,5 @@ public class Descrition {
 
     public void setDescrition(String descrition) {
         this.descrition = descrition;
-    }
-
-    
-    
+    } 
 }
