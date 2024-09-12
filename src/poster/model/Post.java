@@ -8,10 +8,12 @@ public class Post {
     private Price price;
     private Location local;
     private Date date;
+    private Descrition descrition;
 
-    public Post(Title title, Price price, Location local){
+    public Post(Title title, Price price, Location local, Descrition descrition){
         this.title = title;
         this.price = price;
         this.local = local;
+        this.descrition = descrition;
     }    
 }
