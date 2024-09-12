@@ -40,4 +40,13 @@ public class UserRepository {
         User user = searchUser(username);
         user.update(newName, newUsername, newPassword);
     }
+
+    public User login(ProfileUsername username, ProfilePassword password) throws Exception {
+        User user = searchUser(username);
+        if (user.checkPassword(password)) {
+            return user;
+        } else {
+            throw new Exception("Senha inválida");
+        }
+    }
 }

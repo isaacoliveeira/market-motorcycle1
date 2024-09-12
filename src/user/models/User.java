@@ -49,6 +49,10 @@ public class User {
         return this.password.equals(password);
     }
 
+    public boolean checkPassword(ProfilePassword providedPassword) {
+        return this.password.equals(providedPassword);
+    }
+
     @Override
     public String toString() {
         return "User [name=" + name + ", username=" + username + "]";
