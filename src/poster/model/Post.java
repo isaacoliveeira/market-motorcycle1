@@ -15,5 +15,27 @@ public class Post {
         this.price = price;
         this.local = local;
         this.descrition = descrition;
+    }
+
+    public Title getTitle() {
+        return title;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public Location getLocal() {
+        return local;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public Descrition getDescrition() {
+        return descrition;
     }    
+
+    
 }

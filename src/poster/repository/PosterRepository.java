@@ -41,4 +41,37 @@ public class PosterRepository {
     public boolean contains(Post post) {
         return posters.contains(post);
     }
+
+    public Post findPostByTitle(Title title) {
+        for (Post post : posters) {
+            if(post.getTitle.equals(title)) {
+                return post;
+            }
+        }
+        return null;
+    }
+
+    public List<Post> getAllPosts() {
+        return new ArrayList<>(posters);
+    }
+
+    public List<Post> findPostsByLocation(Location location) {
+        List<Post> result = new ArrayList<>();
+        for (Post post : posters) {
+            if (post.getLocation().equals(location)) {
+                result.add(post);
+            }
+        }
+        return result;
+    }
+
+    public List<Post> findPostsByPriceRange(Price minPrice, Price maxPrice) {
+        List<Post> result = new ArrayList<>();
+        for (Post post : posters) {
+            if (post.getPrice().compareTo(minPrice) >= 0 && post.getPrice().compareTo(maxPrice) <= 0) {
+                result.add(post);
+            }
+        }
+        return result;
+    }
 }

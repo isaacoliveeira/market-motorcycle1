@@ -19,7 +19,6 @@
         public void addPost(Title title, Price price, Location location, Descrition descrition) {
             Post post = new Post(title, price, location, descrition);
             posterRepository.addPost(post);
-
         }
 
         @Override
@@ -39,4 +38,10 @@
             throw new IllegalArgumentException("Post não foi encontrado");
         }
 
+        @Override
+        public void searchByTitle(Title title) {
+            return posterRepository.findPostByTitle();
+        }
+
+        
     }
