@@ -24,11 +24,4 @@ public class ProfileUsername {
         ProfileUsername other = (ProfileUsername) obj;
         return this.userName.equals(other.userName);
     }
-
-    //NÃO ENTENDO ESSE MÉTODO
-    /*
-    public boolean validateUsername(ProfileUsername userName){
-        return validateUsername(userName);
-    }
-    */
 }

@@ -22,7 +22,7 @@ public class UserService {
     }
 
     public void removeUser(ProfileUsername username) throws Exception {
-        User user = userRepository.searchUser(username); // Verifica se o usuário existe
+        User user = userRepository.searchUser(username);
         if (user != null) {
             userRepository.removeUser(user);
         }
@@ -33,7 +33,6 @@ public class UserService {
     }
 
     public void editUser(ProfileUsername username, User newUserData) throws Exception {
-        // Valida os novos dados do usuário
         if (!UserValidator.validate(newUserData)) {
             throw new Exception("Dados do usuário inválidos.");
         }

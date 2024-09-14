@@ -7,12 +7,4 @@ public class ProfileName {
     public ProfileName(ProfileName name){
         this.name = name.toString();
     }
-
-    //NÃO ENTENDO ESSE MÉTODO
-    /*
-    public static boolean validateName(ProfileName name){
-        validateName(name);
-        return false;
-    }
-    */
 }

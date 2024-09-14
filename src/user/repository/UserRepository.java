@@ -35,7 +35,6 @@ public class UserRepository {
         throw new Exception("Usuário não encontrado");
     }
 
-    // Usuário só poderá atualizar suas informações caso esteja logado, se estiver logado não há necessidade de fazer verificação de senha pois já foi feita
     public void updateUser(ProfileUsername username, ProfileName newName, ProfileUsername newUsername, ProfilePassword newPassword) throws Exception {
         User user = searchUser(username);
         user.update(newName, newUsername, newPassword);
