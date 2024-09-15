@@ -38,9 +38,10 @@ public class PosterController {
     public void searchByTitle(Title title) {
         List<Post> posts = posterService.searchByTitle(title);
         if (posts.isEmpty()) {
+            System.out.println("Nenhum post encontrado com o titulo fornecido");
         } else {
             for (Post post : posts) {
-                System.out.println(post);
+                return post;
             }
         }
     }
