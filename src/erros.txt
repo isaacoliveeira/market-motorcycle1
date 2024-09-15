@@ -1,0 +1,1 @@
+no editUser, caso vc queria editar o username para um que já existe, primeiro ele vai remover o seu user antigo, depois disparar o erro informando que o usuário ja existe, não deveria ser assim
