@@ -1,9 +1,14 @@
 package motorcycle.validators;
 
+
+import java.time.Year;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+<<<<<<< HEAD
 import motorcycle.models.Year;
+=======
+>>>>>>> origin/vinicius
 
 public class YearValidator {
     

@@ -4,8 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import motorcycle.models.Brand;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/vinicius
 
 
 public class BrandValidator {

@@ -5,7 +5,6 @@ import motorcycle.models.Brand;
 import motorcycle.models.CylinderCapacity;
 import motorcycle.models.Km;
 import motorcycle.models.Model;
-import motorcycle.models.Motorcycle;
 
 public interface MotorcycleActionsInterface {
     public void register(Brand brand, Model model, CylinderCapacity cylinderCapacity,Year year, Km Km);

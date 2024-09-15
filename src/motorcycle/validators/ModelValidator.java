@@ -2,8 +2,12 @@ package motorcycle.validators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import motorcycle.models.Model;
+
+<<<<<<< HEAD
+import motorcycle.models.Model;
+=======
+>>>>>>> origin/vinicius
 
 public class ModelValidator {
         static Pattern pattern = Pattern.compile("[a-zA-Z]{15}");

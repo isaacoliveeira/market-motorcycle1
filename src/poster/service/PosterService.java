@@ -1,4 +1,5 @@
 package poster.service;
+
 import java.util.List;
 import interfaces.PostInterface;
 import poster.model.Descrition;

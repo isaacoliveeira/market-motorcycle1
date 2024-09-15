@@ -1,40 +1,57 @@
 package user.repository;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+
+import java.util.ArrayList;
+import java.util.List;
+
+import user.models.ProfileName;
+import user.models.ProfilePassword;
+import user.models.ProfileUsername;
+>>>>>>> origin/vinicius
 import user.models.User;
 
 public class UserRepository {
     List<User> users = new ArrayList<>();
 
-    public void addUser(User user) throws Exception{
-        if(users.contains(user)){
-            throw new Exception("USUÁRIO JÁ EXISTE"); 
-        } 
-        users.add(user);   
+    public void addUser(User user) throws Exception {
+        for (User u : users) {
+            if (u.matches(user)) {
+                throw new Exception("Usuário já existe");
+            }
+        }
+        users.add(user);
     }
 
-    public void removeUser(User user) throws Exception{
-        if (!users.contains(user)) {
-            throw new Exception("USUÁRIO NÃO ENCONTRADO"); 
-        }
-        users.remove(user);
-    }
-
-    public void listAllUsers() throws Exception {
-        if (users.isEmpty()) {
-            throw new Exception("NÃO POSSUI USUÁRIOS CADASTRADOS");
-        }
-        for (User users : users) {
-            System.out.println(users);
+    public void removeUser(User user) throws Exception {
+        if (!users.remove(user)) {
+            throw new Exception("Usuário não encontrado");
         }
     }
 
-    public void searchUser(User user) throws Exception {
-        if (!users.contains(user)){
-            throw new Exception("USUÁRIO NÃO EXISTE");
+    public User searchUser(ProfileUsername username) throws Exception {
+        for (User user : users) {
+            if (user.matches(username)) {
+                return user;
+            }
         }
-        user.toString();
+        throw new Exception("Usuário não encontrado");
     }
 
+    public void updateUser(ProfileUsername username, ProfileName newName, ProfileUsername newUsername, ProfilePassword newPassword) throws Exception {
+        User user = searchUser(username);
+        user.update(newName, newUsername, newPassword);
+    }
+
+    public Boolean login(ProfileUsername username, ProfilePassword password) throws Exception {
+        User user = searchUser(username);
+        if (user.checkPassword(password)) {
+            return true;
+        } else {
+            throw new Exception("Senha inválida");
+        }
+    }
 }

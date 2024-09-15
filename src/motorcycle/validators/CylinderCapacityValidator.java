@@ -2,8 +2,12 @@ package motorcycle.validators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import motorcycle.models.CylinderCapacity;
+
+<<<<<<< HEAD
+import motorcycle.models.CylinderCapacity;
+=======
+>>>>>>> origin/vinicius
 
 public class CylinderCapacityValidator {
 

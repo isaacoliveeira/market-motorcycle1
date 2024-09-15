@@ -1,7 +1,6 @@
 package interfaces;
 
 import java.util.List;
-
 import poster.model.Descrition;
 import poster.model.Location;
 import poster.model.Post;

@@ -26,7 +26,6 @@ public class Motorcycle{
         this.brand = brand;
     }
 
-
     public void setModel(Model model) {
         this.model = model;
     }
@@ -35,7 +34,7 @@ public class Motorcycle{
         this.cylinder = cylinder;
     }
 
-    public void setCylinderyear(Year year) {
+    public void setYear(Year year) {
         this.year = year;
     }
 
@@ -46,15 +45,17 @@ public class Motorcycle{
     public void setKm(Km km) {
         this.km = km;
     }
+    
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
 
     public static boolean equalsId(Motorcycle motorcycle, int id) {
         return motorcycle.id == id;
-    }
-
-    
-
-    public Brand getBrand() {
-        return brand;
     }
 
     public void setBrand(Brand brand) {

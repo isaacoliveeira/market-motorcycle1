@@ -3,18 +3,12 @@ package poster.repository;
 import java.util.ArrayList;
 import java.util.List;
 import poster.model.Post;
-import poster.model.Title;
 
 public class PosterRepository {
-
-    private List<Post> posters;
-
-    public PosterRepository() {
-        this.posters = new ArrayList<>();
-    }
+    List<Post> posters = new ArrayList<>();
 
     public PosterRepository(List<Post> posters) {
-        this.posters = posters != null ? posters : new ArrayList<>();
+        this.posters = posters;
     }
 
     public void addPost(Post post) {

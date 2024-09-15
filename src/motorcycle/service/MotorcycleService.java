@@ -24,9 +24,14 @@ public class MotorcycleService implements MotorcycleActionsInterface {
     }
 
     @Override
+<<<<<<< HEAD
     public void remove(Brand brand, Model model, CylinderCapacity cylinderCapacity,Year year, Km km) {
         Motorcycle motorcycle = new Motorcycle(brand, model, cylinderCapacity, year, km);
         repository.removeMotorcycle(motorcycle);
+=======
+    public void remove(Brand brand) {
+        repository.removeMotorcycle(brand);
+>>>>>>> origin/vinicius
     }
 
     @Override
@@ -41,4 +46,19 @@ public class MotorcycleService implements MotorcycleActionsInterface {
     public void show() {
         repository.listAllMotorcycles();
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public void search(int id) {
+        Motorcycle motorcycle = repository.search(id);
+        if( motorcycle != null) {
+            System.out.println(motorcycle.toString());
+        }
+        throw new IllegalArgumentException("MOTO NÃO ENCONTRADA");
+    }
+
+
+
+>>>>>>> origin/vinicius
 }
