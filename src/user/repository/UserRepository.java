@@ -42,10 +42,11 @@ public class UserRepository {
 
     public Boolean login(ProfileUsername username, ProfilePassword password) throws Exception {
         User user = searchUser(username);
-        if (user.checkPassword(password)) {
+        if (user != null && user.checkPassword(password)) {
             return true;
         } else {
             throw new Exception("Senha inválida");
         }
     }
+        
 }

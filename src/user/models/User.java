@@ -50,9 +50,9 @@ public class User {
     }
 
     public boolean checkPassword(ProfilePassword providedPassword) {
-        return this.password.equals(providedPassword);
+        return this.password.getPassword().equals(providedPassword.getPassword());
     }
-
+    
     public ProfileName getName() {
         return name;
     }
