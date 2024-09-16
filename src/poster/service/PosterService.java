@@ -29,7 +29,7 @@ public class PosterService implements PostInterface {
     @Override
     public void updatePost(Post oldPost, Post newPost) {
         // ele chama um metodo criado no posterRepository, visto que posterRepository aqui n é uma lista, e nao tem esse metodo;
-        if (posterRepository.contains(oldPost)) {
+        if (posterRepository.containsPost(oldPost)) {
             posterRepository.update(oldPost, newPost);
         }
         throw new IllegalArgumentException("Post não foi encontrado");

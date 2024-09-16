@@ -70,11 +70,11 @@ public class MainMenuCLI {
     
 
     private void createUser() throws Exception {
-        System.out.print("\nDigite seu nome: ");
+        System.out.print("\nDigite seu nome: (Use apenas letras maiúsculas e/ou minúsculas)\n");
         String name = scanner.nextLine();
-        System.out.print("Digite seu nome de usuário: ");
+        System.out.print("\nDigite seu nome de usuário: (O nome de usuário deve começar com letra, ter no mínimo 4 letras e entre 0 e 4 números)\n");
         String username = scanner.nextLine();
-        System.out.print("Digite sua senha: ");
+        System.out.print("\nDigite sua senha: (Use pelo menos 6 letras, 1 caractere especial e 1 número)\n");
         String password = scanner.nextLine();
 
         ProfileName profileName = new ProfileName(name);

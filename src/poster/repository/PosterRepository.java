@@ -35,7 +35,7 @@
             }
         }
 
-        public boolean contains(Post post) {
+        public boolean containsPost(Post post) {
             return posters.contains(post);
         }
 

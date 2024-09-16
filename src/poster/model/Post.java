@@ -10,14 +10,14 @@ public class Post {
     private Price price;
     private Location local;
     private Date date;
-    private Descrition descrition;
+    private Description description;
     private boolean sold;
 
-    public Post(Title title, Price price, Location local, Descrition descrition){
+    public Post(Title title, Price price, Location local, Description description){
         this.title = title;
         this.price = price;
         this.local = local;
-        this.descrition = descrition;
+        this.description = description;
         this.sold = false; // verifica se foi vendida
     }
 
@@ -45,8 +45,8 @@ public class Post {
         return date;
     }
 
-    public Descrition getDescrition() {
-        return descrition;
+    public Description getDescrition() {
+        return description;
     }
 
 
