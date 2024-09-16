@@ -10,14 +10,16 @@ public class MainMenuCLI {
 
     private UserController userController;
     private Scanner scanner;
+    private boolean running;
 
     public MainMenuCLI(UserController userController) {
         this.userController = userController;
         this.scanner = new Scanner(System.in);
+        this.running = true;
     }
 
     public void displayMainMenu() throws Exception {
-        while (true) {
+        while (running) {
             System.out.println("******* MENU PRINCIPAL *******");
             System.out.println("\n1. Login");
             System.out.println("2. Criar Usuário");
@@ -35,7 +37,8 @@ public class MainMenuCLI {
                     createUser();
                     break;
                 case 3:
-                    return; // Sair do loop
+                    exit();
+                    break; 
                 default:
                     System.out.println("\nOpção inválida. Tente novamente.");
                     System.out.println("");
@@ -44,7 +47,7 @@ public class MainMenuCLI {
     }
 
     private void loginUser() throws Exception {
-        System.out.print("Digite seu nome de usuário: ");
+        System.out.print("\nDigite seu nome de usuário: ");
         String username = scanner.nextLine();
         System.out.print("Digite sua senha: ");
         String password = scanner.nextLine();
@@ -58,7 +61,7 @@ public class MainMenuCLI {
             System.out.println("\nLogin realizado com sucesso!");
     
             // Exibir o menu pós-login
-            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController);
+            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this);
             postLoginMenu.displayPostLoginMenu();
         } else {
             System.out.println("\nFalha no login. Usuário ou senha incorretos.");
@@ -81,5 +84,13 @@ public class MainMenuCLI {
         userController.createUser(profileName, profileUsername, profilePassword);
         System.out.println("\nUsuário criado com sucesso!");
         System.out.println();
+    }
+
+    public void returnToMainMenu() throws Exception {
+        displayMainMenu();
+    }
+
+    public void exit(){
+        running = false;
     }
 }

@@ -6,14 +6,16 @@ import user.controller.UserController;
 public class PostLoginMenuCLI {
 
     private UserController userController;
+    private MainMenuCLI mainMenuCLI;
     private Scanner scanner;
 
-    public PostLoginMenuCLI(UserController userController) {
+    public PostLoginMenuCLI(UserController userController, MainMenuCLI mainMenuCLI) {
         this.userController = userController;
+        this.mainMenuCLI = mainMenuCLI;
         this.scanner = new Scanner(System.in);
     }
 
-    public void displayPostLoginMenu() {
+    public void displayPostLoginMenu() throws Exception {
         while (true) {
             System.out.println("\n******* MENU PÓS-LOGIN *******");
             System.out.println("\n1. Anunciar");
@@ -33,10 +35,12 @@ public class PostLoginMenuCLI {
                     System.out.println("\nFunção de Comprar ainda não implementada.");
                     break;
                 case 3:
-                    System.out.println("\nFunção de Gerenciar usuário ainda não implementada.");
+                    UserManagementCLI userManagementCLI = new UserManagementCLI(userController, mainMenuCLI);
+                    userManagementCLI.displayUserManagementMenu();
                     break;
                 case 4:
                     System.out.println("\nSaindo...");
+                    System.out.println();
                     return; // Sair do loop
                 default:
                     System.out.println("\nOpção inválida. Tente novamente.");
