@@ -16,8 +16,12 @@ public class UserController {
         userService.addUser(user);
     }
 
-    public void loginUser(ProfileUsername username, ProfilePassword password) throws Exception {
-        userService.login(username, password);
+    public Boolean loginUser(ProfileUsername username, ProfilePassword password) throws Exception {
+        if(userService.login(username, password)){
+            return true;
+        } else{
+            return false;
+        }
     }
 
     public void editUser(ProfileUsername username, ProfileName newName, ProfileUsername newUsername, ProfilePassword newPassword) throws Exception {

@@ -48,13 +48,23 @@ public class MainMenuCLI {
         String username = scanner.nextLine();
         System.out.print("Digite sua senha: ");
         String password = scanner.nextLine();
-
+    
         ProfileUsername profileUsername = new ProfileUsername(username);
         ProfilePassword profilePassword = new ProfilePassword(password);
-
-        userController.loginUser(profileUsername, profilePassword);
-        System.out.println("Login realizado com sucesso!");
+    
+        boolean isLoginSuccessful = userController.loginUser(profileUsername, profilePassword);
+    
+        if (isLoginSuccessful) {
+            System.out.println("\nLogin realizado com sucesso!");
+    
+            // Exibir o menu pós-login
+            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController);
+            postLoginMenu.displayPostLoginMenu();
+        } else {
+            System.out.println("\nFalha no login. Usuário ou senha incorretos.");
+        }
     }
+    
 
     private void createUser() throws Exception {
         System.out.print("\nDigite seu nome: ");
@@ -69,6 +79,7 @@ public class MainMenuCLI {
         ProfilePassword profilePassword = new ProfilePassword(password);
 
         userController.createUser(profileName, profileUsername, profilePassword);
-        System.out.println("Usuário criado com sucesso!");
+        System.out.println("\nUsuário criado com sucesso!");
+        System.out.println();
     }
 }
