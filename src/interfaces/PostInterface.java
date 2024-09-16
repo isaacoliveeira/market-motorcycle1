@@ -1,11 +1,13 @@
 package interfaces;
 
-import poster.model.Location;
-import poster.model.Price;
+import java.util.List;
+import poster.model.Post;
 import poster.model.Title;
 
 public interface PostInterface {
-    public void addPost(Title title, Price price, Location location);
-    public void removePost();
-    public void updatePost(Title title, Price price, Location location);
+    void addPost(Post post);
+    void removePost(Post post);
+    void updatePost(Post oldPost, Post newPost);
+    List<Post> searchByTitle(Title title);
+    void buy(Post post);
 }
