@@ -8,8 +8,12 @@ public class ProfilePassword {
 
     private String password;
 
-    public ProfilePassword(ProfilePassword password){
-        this.password = password.toString();
+    public ProfilePassword(String password){
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 <<<<<<< HEAD
     public boolean validateSenha(ProfilePassword profilePassword){

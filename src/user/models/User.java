@@ -52,9 +52,13 @@ public class User {
     }
 
     public boolean checkPassword(ProfilePassword providedPassword) {
-        return this.password.equals(providedPassword);
+        return this.password.getPassword().equals(providedPassword.getPassword());
     }
+<<<<<<< HEAD
 
+>>>>>>> origin/vinicius
+=======
+    
 >>>>>>> origin/vinicius
     public ProfileName getName() {
         return name;

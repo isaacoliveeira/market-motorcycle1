@@ -41,7 +41,7 @@ public class PosterController {
             System.out.println("Nenhum post encontrado com o titulo fornecido");
         } else {
             for (Post post : posts) {
-                return post;
+                System.out.println(post);
             }
         }
     }

@@ -9,7 +9,7 @@ public class UsernameValidator {
     static Pattern pattern = Pattern.compile("^[a-z]{4,}[0-9]{0,4}$");
 
     public static boolean validateUserName(ProfileUsername profileUsername) {
-        Matcher matcher = pattern.matcher(profileUsername.toString());
+        Matcher matcher = pattern.matcher(profileUsername.getUsername());
         return matcher.find();
     }
 }

@@ -1,18 +1,15 @@
 package user.service;
-
-<<<<<<< HEAD
 import interfaces.ProfileInterface;
 import user.models.User;
 import user.models.ProfileName;
 import user.models.ProfilePassword;
 import user.models.ProfileUsername;
-=======
 import user.models.*;
 import user.repository.UserRepository;
 import user.validators.PasswordValidator;
 import user.validators.UserValidator;
 import user.validators.UsernameValidator;
->>>>>>> origin/vinicius
+
 
 public class UserService {
 

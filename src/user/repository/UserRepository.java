@@ -1,17 +1,12 @@
 package user.repository;
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
-
-=======
-
 import java.util.ArrayList;
 import java.util.List;
-
 import user.models.ProfileName;
 import user.models.ProfilePassword;
 import user.models.ProfileUsername;
->>>>>>> origin/vinicius
+
 import user.models.User;
 
 public class UserRepository {
@@ -48,10 +43,11 @@ public class UserRepository {
 
     public Boolean login(ProfileUsername username, ProfilePassword password) throws Exception {
         User user = searchUser(username);
-        if (user.checkPassword(password)) {
+        if (user != null && user.checkPassword(password)) {
             return true;
         } else {
             throw new Exception("Senha inválida");
         }
     }
+        
 }

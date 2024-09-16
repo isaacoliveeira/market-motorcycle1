@@ -4,8 +4,8 @@ public class ProfileUsername {
 
     private String userName;
 
-    public ProfileUsername(ProfileUsername userName){
-        this.userName = userName.toString().toLowerCase();
+    public ProfileUsername(String userName){
+        this.userName = userName;;
     }
 
     @Override
@@ -23,5 +23,9 @@ public class ProfileUsername {
             return false;
         ProfileUsername other = (ProfileUsername) obj;
         return this.userName.equals(other.userName);
+    }
+
+    public String getUsername() {
+        return userName;
     }
 }
