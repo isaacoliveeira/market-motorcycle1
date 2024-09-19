@@ -41,7 +41,6 @@ public class MainMenuCLI {
                     break;
                 case 3:
                     exit();
-                    break; 
                 default:
                     System.out.println("\nOpção inválida. Tente novamente!");
                     System.out.println("");

@@ -33,6 +33,9 @@ public class Post {
         return title;
     }
 
+    public Price getPrice(){
+        return price;
+    }
 
     public Post get(int index) {
         return get(index);
@@ -54,5 +57,10 @@ public class Post {
 
     public String getFormattedDate(){
         return this.formattedDate;
+    }
+
+    @Override
+    public String toString() {
+        return title.getTitle() + "|" + "Preço: " + price.getPrice()  + "|" + "Localização: " + local.getLocation() + "|" + "Descrição:" +    description.getDescription();
     }
 }

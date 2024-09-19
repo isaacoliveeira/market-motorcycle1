@@ -44,4 +44,8 @@ public class PosterService implements PostInterface {
     public void buy(Post post) {
         posterRepository.buy(post);
     }
+
+    public List<Post> listPosts(){
+        return posterRepository.getAllPosts();
+    }
 }

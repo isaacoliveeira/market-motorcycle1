@@ -15,4 +15,9 @@ public class Title {
         this.title = title;
     }
 
+    @Override
+    public String toString() {
+        return title.toString();
+    }
+
 }

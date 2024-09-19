@@ -1,10 +1,12 @@
 package cli;
 
+import java.util.List;
 import java.util.Scanner;
 
 import poster.controller.PosterController;
 import poster.model.Description;
 import poster.model.Location;
+import poster.model.Post;
 import poster.model.Price;
 import poster.model.Title;
 import user.controller.UserController;
@@ -76,25 +78,27 @@ public class PostLoginMenuCLI {
         Description description = new Description(newDescription);
 
         posterController.addPost(title, price, location, description);
-        System.out.println("ANÚNCIO CRIADO COM SUCESSO");
+        System.out.println("ANÚNCIO CRIADO COM SUCESSO!");
     }
 
     private void buyPost() throws Exception {
         System.out.println("------COMPRAR------");
-        System.out.println("Digite o TÍTULO DO ANÚNCIO:");
+        System.out.println("Digite o título do anúncio:");
         String titleAnuncio = scanner.nextLine();
         Title titleAn = new Title(titleAnuncio);
 
         if (posterController.selectPost(titleAn)) {
             posterController.buyPost();
-            System.out.println("COMPRA REALIZADA");
+            System.out.println("COMPRA REALIZADA!");
         } else {
-            System.out.println("ANÚNCIO NÃO ENCONTRADO");
+            System.out.println("ANÚNCIO NÃO ENCONTRADO!");
         }
     }
 
     private void listPosts() throws Exception {
         System.out.println("------LISTA DE POSTS------");
-        posterController.ListMyPosts();
+        for(Post post : posterController.listMyPosts()){
+            System.out.println();
+        };
     }
 }

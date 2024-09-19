@@ -15,7 +15,7 @@ public class Main {
         PosterService posterService = new PosterService();
         PosterController posterController = new PosterController(posterService);
         MainMenuCLI mainMenuCLI = new MainMenuCLI(userController);
-
+        
         // Iniciar o menu principal
         mainMenuCLI.displayMainMenu();
     }

@@ -50,7 +50,7 @@
         }
 
         public List<Post> getAllPosts() {
-            return new ArrayList<>(posters);
+            return posters;
         }
 
         public void buy(Post post) {
@@ -63,5 +63,4 @@
                 throw new IllegalArgumentException("Post não encontrado para venda");
             }
         }
-
     }

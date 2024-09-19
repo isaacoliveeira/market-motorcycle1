@@ -69,14 +69,7 @@ public class PosterController {
         }
     }
 
-    public void ListMyPosts() throws Exception {
-        List<Post> myPosts = posterService.searchByTitle(new Title(""));
-        if (myPosts.isEmpty()) {
-            System.out.println("NENHUM ANÚNCIO ENCONTRADO");
-        } else {
-            for (Post post : myPosts) {
-                System.out.println(post);
-            }
-        }
+    public List<Post> listMyPosts() throws Exception {
+        return posterService.listPosts();
     }
 }
