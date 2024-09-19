@@ -6,10 +6,10 @@
     import poster.model.Title;
 
     public class PosterRepository {
-        List<Post> posters = new ArrayList<>();
+        List<Post> posters;
 
-        public PosterRepository(List<Post> posters) {
-            this.posters = posters;
+        public PosterRepository() {
+            this.posters = new ArrayList<>();
         }
 
         public void addPost(Post post) {
@@ -55,13 +55,13 @@
 
         public void buy(Post post) {
             int index = posters.indexOf(post);
-            if (index == -1) {
-                Post postBuy = post.get(index);
+            if (index != -1) {
+                Post postBuy = posters.get(index);
                 postBuy.setSold(true);
                 posters.set(index, postBuy);
-                posters.remove(index);
             } else {
-                throw new IllegalArgumentException("Moto não encontrada para venda");
+                throw new IllegalArgumentException("Post não encontrado para venda");
             }
         }
+
     }

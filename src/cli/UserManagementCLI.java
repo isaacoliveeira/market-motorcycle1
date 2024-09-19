@@ -9,18 +9,18 @@ import user.models.ProfileUsername;
 public class UserManagementCLI {
 
     private UserController userController;
-    private MainMenuCLI mainMenuCLI; // Referência ao MainMenuCLI
+    private MainMenuCLI mainMenuCLI;
     private Scanner scanner;
 
     public UserManagementCLI(UserController userController, MainMenuCLI mainMenuCLI) {
         this.userController = userController;
-        this.mainMenuCLI = mainMenuCLI; // Inicializar a referência
+        this.mainMenuCLI = mainMenuCLI;
         this.scanner = new Scanner(System.in);
     }
 
     public void displayUserManagementMenu() throws Exception {
         while (true) {
-            System.out.println("\n******* GERENCIAR USUÁRIO *******");
+            System.out.println("\n******* GERENCIAR CONTA *******");
             System.out.println("\n1. Atualizar informações");
             System.out.println("2. Deletar meu perfil");
             System.out.println("3. Voltar");
@@ -64,14 +64,14 @@ public class UserManagementCLI {
     }
 
     private void deleteUser() throws Exception {
-        System.out.println("\n******* DELETAR USUÁRIO *******");
+        System.out.println("\n******* DELETAR CONTA *******");
         System.out.println("\nTem certeza de que deseja deletar seu perfil? Isso não poderá ser desfeito.");
-        System.out.print("\nDigite 'CONFIRMAR' para deletar o usuário ou '0' para voltar: ");
+        System.out.print("\nDigite 'CONFIRMAR' para deletar a conta ou '0' para voltar: ");
         String confirmation = scanner.nextLine();
 
         if (confirmation.equals("CONFIRMAR")) {
             // Chamar o método de exclusão do UserController
-            System.out.println("\nDeletando usuário...");
+            System.out.println("\nDeletando Conta...");
             userController.removeUser(); // Chame o método para deletar o usuário logado
             System.out.println("\nUsuário deletado com sucesso.");
             System.out.println("\nParando o programa...");

@@ -68,4 +68,15 @@ public class PosterController {
             throw new Exception("Nenhum post selecionado para compra.");
         }
     }
+
+    public void ListMyPosts() throws Exception {
+        List<Post> myPosts = posterService.searchByTitle(new Title(""));
+        if (myPosts.isEmpty()) {
+            System.out.println("NENHUM ANÚNCIO ENCONTRADO");
+        } else {
+            for (Post post : myPosts) {
+                System.out.println(post);
+            }
+        }
+    }
 }

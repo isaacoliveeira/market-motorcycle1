@@ -1,6 +1,10 @@
 package cli;
 
 import java.util.Scanner;
+
+import poster.controller.PosterController;
+import poster.repository.PosterRepository;
+import poster.service.PosterService;
 import user.controller.UserController;
 import user.models.ProfileName;
 import user.models.ProfileUsername;
@@ -27,8 +31,7 @@ public class MainMenuCLI {
             System.out.print("\nEscolha uma opção: ");
 
             int option = scanner.nextInt();
-            scanner.nextLine(); // Consumir nova linha
-
+            scanner.nextLine();
             switch (option) {
                 case 1:
                     loginUser();
@@ -40,7 +43,7 @@ public class MainMenuCLI {
                     exit();
                     break; 
                 default:
-                    System.out.println("\nOpção inválida. Tente novamente.");
+                    System.out.println("\nOpção inválida. Tente novamente!");
                     System.out.println("");
             }
         }
@@ -61,7 +64,10 @@ public class MainMenuCLI {
             System.out.println("\nLogin realizado com sucesso!");
     
             // Exibir o menu pós-login
-            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this);
+            PosterService posterService = new PosterService();
+            PosterController posterController = new PosterController(posterService);
+            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this, posterController );
+
             postLoginMenu.displayPostLoginMenu();
         } else {
             System.out.println("\nFalha no login. Usuário ou senha incorretos.");

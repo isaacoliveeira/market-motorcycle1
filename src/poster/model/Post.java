@@ -33,22 +33,6 @@ public class Post {
         return title;
     }
 
-    public Price getPrice() {
-        return price;
-    }
-
-    public Location getLocal() {
-        return local;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public Description getDescrition() {
-        return description;
-    }
-
 
     public Post get(int index) {
         return get(index);
