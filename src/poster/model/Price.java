@@ -15,8 +15,4 @@ public class Price {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return String x = price + "" 
-    }
 }

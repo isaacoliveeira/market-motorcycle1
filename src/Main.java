@@ -12,6 +12,7 @@ public class Main {
         UserRepository userRepository = new UserRepository();
         UserService userService = new UserService(userRepository);
         UserController userController = new UserController(userService);
+        PosterRepository posterRepository = new PosterRepository();
         PosterService posterService = new PosterService();
         PosterController posterController = new PosterController(posterService);
         MainMenuCLI mainMenuCLI = new MainMenuCLI(userController);

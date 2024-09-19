@@ -2,10 +2,13 @@ package poster.controller;
 
 import poster.model.Post;
 import poster.model.Title;
+import poster.repository.PosterRepository;
 import poster.model.Price;
 import poster.model.Location;
 import poster.model.Description;
 import poster.service.PosterService;
+import user.models.ProfileUsername;
+import user.models.User;
 
 import java.util.List;
 
@@ -13,13 +16,14 @@ public class PosterController {
 
     private Post loggedPost; 
     private PosterService posterService;
+    private PosterRepository posterRepository;
 
     public PosterController(PosterService posterService) {
         this.posterService = posterService;
     }
 
-    public void addPost(Title title, Price price, Location location, Description description) throws Exception {
-        Post post = new Post(title, price, location, description);
+    public void addPost(Title title, Price price, Location location, Description description, ProfileUsername username) throws Exception {
+        Post post = new Post(title, price, location, description, username);
         posterService.addPost(post);
     }
 
@@ -33,9 +37,9 @@ public class PosterController {
         }
     }
 
-    public void updatePost(Title newTitle, Price newPrice, Location newLocation, Description newDescription) throws Exception {
+    public void updatePost(Title newTitle, Price newPrice, Location newLocation, Description newDescription, ProfileUsername username) throws Exception {
         if (loggedPost != null) {
-            Post newPost = new Post(newTitle, newPrice, newLocation, newDescription);
+            Post newPost = new Post(newTitle, newPrice, newLocation, newDescription, username);
             posterService.updatePost(loggedPost, newPost);
         } else {
             throw new Exception("Nenhum post selecionado para atualizar.");
@@ -71,5 +75,13 @@ public class PosterController {
 
     public List<Post> listMyPosts() throws Exception {
         return posterService.listPosts();
+    }
+
+    public List<Post> viewAllPosts() {
+        return posterRepository.getAllPosts();
+    }
+
+    public List<Post> getPostsByUser(User user) {
+        return posterRepository.getPostsByUser(user);
     }
 }

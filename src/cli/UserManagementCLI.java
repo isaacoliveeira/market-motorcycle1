@@ -37,7 +37,7 @@ public class UserManagementCLI {
                     deleteUser();
                     break;
                 case 3:
-                    return; // Voltar ao menu anterior
+                    break; // Voltar ao menu anterior
                 default:
                     System.out.println("\nOpção inválida. Tente novamente.");
             }

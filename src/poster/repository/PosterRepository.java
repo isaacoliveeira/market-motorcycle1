@@ -4,6 +4,7 @@
     import java.util.List;
     import poster.model.Post;
     import poster.model.Title;
+    import user.models.User;
 
     public class PosterRepository {
         List<Post> posters;
@@ -63,4 +64,14 @@
                 throw new IllegalArgumentException("Post não encontrado para venda");
             }
         }
+
+        public List<Post> getPostsByUser(User user) {
+            List<Post> userPosts = new ArrayList<>();
+            for (Post post : posters) {
+                if (post.getUsername().equals(user)) {
+                    userPosts.add(post);
+                }
+            }
+            return userPosts;
     }
+}
