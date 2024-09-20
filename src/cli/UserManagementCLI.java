@@ -9,12 +9,10 @@ import user.model.ProfileUsername;
 public class UserManagementCLI {
 
     private UserController userController;
-    private MainMenuCLI mainMenuCLI;
     private Scanner scanner;
 
     public UserManagementCLI(UserController userController, MainMenuCLI mainMenuCLI) {
         this.userController = userController;
-        this.mainMenuCLI = mainMenuCLI;
         this.scanner = new Scanner(System.in);
     }
 

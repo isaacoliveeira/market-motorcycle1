@@ -9,7 +9,19 @@ import user.model.ProfileUsername;
 import user.model.User;
 
 public class UserRepository {
-    List<User> users = new ArrayList<>();
+    List<User> users;
+    static UserRepository instance;
+
+    public UserRepository(){
+        this.users = new ArrayList<>();
+    }
+
+    public static UserRepository getInstance(){
+        if(instance == null){
+            instance = new UserRepository();
+        }
+        return instance;
+    }
 
     public void addUser(User user) throws Exception {
         for (User u : users) {
@@ -47,6 +59,10 @@ public class UserRepository {
         } else {
             throw new Exception("Senha inválida");
         }
+
     }
+    public List<User> getAllUsers(){
+        return users;
+}
         
 }

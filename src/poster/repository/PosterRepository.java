@@ -3,9 +3,6 @@ package poster.repository;
 import java.util.ArrayList;
 import java.util.List;
 import poster.model.Post;
-import poster.model.Title;
-import user.model.ProfileUsername;
-import user.model.User;
 
 public class PosterRepository {
     List<Post> posters;

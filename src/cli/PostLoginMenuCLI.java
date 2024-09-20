@@ -29,15 +29,16 @@ public class PostLoginMenuCLI {
     }
 
     public void displayPostLoginMenu(ProfileUsername username) throws Exception {
-        PosterCSV.importar(); //////////////////////////////////////????????????????????????????????????/
+        //PosterCSV.importar(); //////////////////////////////////////????????????????????????????????????
         this.username = username;
         while (true) {
             System.out.println("******* MENU PÓS-LOGIN *******");
             System.out.println("1. Anunciar");
             System.out.println("2. Ver meus anúncios");
             System.out.println("3. Ver anúncios disponíveis");
-            System.out.println("4. Gerenciar usuário");
-            System.out.println("5. Sair");
+            System.out.println("4. Procurar anúncios disponíveis");
+            System.out.println("5. Gerenciar conta");
+            System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
 
             int option = scanner.nextInt();
@@ -54,10 +55,13 @@ public class PostLoginMenuCLI {
                     viewAllPosts();
                     break;
                 case 4:
+                    findPost();
+                    break;
+                case 5:
                     UserManagementCLI userManagementCLI = new UserManagementCLI(userController, mainMenuCLI);
                     userManagementCLI.displayUserManagementMenu();
                     break;
-                case 5:
+                case 6:
                     mainMenuCLI.returnToMainMenu();
                     return;
                 default:
@@ -88,16 +92,16 @@ public class PostLoginMenuCLI {
         PosterCSV.exportar();
     }
 
-    private void buyPost(Post post) {
-        System.out.println("Você escolheu comprar o seguinte anúncio:");
-        System.out.println(post);
-        System.out.print("Deseja confirmar a compra? (s/n): ");
-        String confirmation = scanner.nextLine();
-
-        if (confirmation.equalsIgnoreCase("s")) {
-            System.out.println("Compra realizada com sucesso!");
-        } else {
-            System.out.println("Compra cancelada.");
+    private void findPost() throws Exception{
+        String termo = scanner.nextLine();
+        if(posterController.search(termo).isEmpty()){
+            System.out.println("Não há públicações para esta pesquisa.");
+        }
+        if (posterController.search(termo).size()>=1){
+            System.out.println("Públicações encontradas:");
+            for(Post post : posterController.search(termo)){
+                System.out.println(post.toString());
+            }
         }
     }
 
@@ -124,7 +128,6 @@ public class PostLoginMenuCLI {
 
             if (choice > 0 && choice <= posts.size()) {
                 Post selectedPost = posts.get(choice - 1);
-                //posterController.buyPost(selectedPost);
                 System.out.println("Você comprou o anúncio: " + selectedPost);
             } else if (choice == 0) {
                 System.out.println("Saindo...");

@@ -3,7 +3,6 @@ package cli;
 import java.util.Scanner;
 import poster.controller.PosterController;
 import poster.service.PosterService;
-import poster.repository.PosterCSV;
 import poster.repository.PosterRepository;
 import user.controller.UserController;
 import user.model.ProfileName;
@@ -61,8 +60,6 @@ public class MainMenuCLI {
     
         if (isLoginSuccessful) {
             System.out.println("\nLogin realizado com sucesso!");
-    
-            // Criação do PosterRepository e PosterService
             PosterRepository.getInstance();
             PosterService posterService = new PosterService();
             PosterController posterController = new PosterController(posterService);

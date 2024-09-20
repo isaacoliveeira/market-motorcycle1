@@ -1,6 +1,5 @@
 package poster.controller;
 
-import poster.repository.PosterRepository;
 import poster.model.*;
 import poster.service.PosterService;
 import user.model.ProfileUsername;
@@ -11,11 +10,9 @@ public class PosterController {
 
     private Post loggedPost; 
     private PosterService posterService;
-    private PosterRepository posterRepository;
 
     public PosterController(PosterService posterService) {
         this.posterService = posterService;
-        this.posterRepository = PosterRepository.getInstance();
     }
 
     public void addPost(Title title, Price price, Location location, Description description, ProfileUsername username) throws Exception {
@@ -23,16 +20,6 @@ public class PosterController {
         System.out.println(post.getTitle() + ";" + post.getPrice().getPrice()+ ";" + post.getLocation().getLocation() + ";" + post.getDescription());
         posterService.addPost(post);
     }
-
-    // public Boolean selectPost(String termo) throws Exception {
-    //     List<Post> posts = posterSerString termo(title);
-    //     if (!posts.isEmpty()) {
-    //         loggedPost = posts.get(0);
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
 
     public void updatePost(Title newTitle, Price newPrice, Location newLocation, Description newDescription, ProfileUsername username) throws Exception {
         if (loggedPost != null) {
@@ -51,24 +38,10 @@ public class PosterController {
         }
     }
 
-    public void search(String termo) throws Exception {
+    public List<Post> search(String termo) throws Exception {
         List<Post> posts = posterService.search(termo);
-        if (posts.isEmpty()) {
-            System.out.println("Nenhum post encontrado com o título fornecido.");
-        } else {
-            for (Post post : posts) {
-                System.out.println("Post encontrado: " + post);
-            }
-        }
+        return posts;
     }
-
-    /*public void buyPost() throws Exception {
-        if (loggedPost != null) {
-            posterService.buy(loggedPost);
-        } else {
-            throw new Exception("Nenhum post selecionado para compra.");
-        }
-    }*/
 
     public List<Post> listMyPosts(ProfileUsername username) throws Exception {
         List<Post> postUser = new ArrayList<>();

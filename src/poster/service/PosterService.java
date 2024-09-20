@@ -3,7 +3,6 @@ package poster.service;
 import java.util.List;
 import interfaces.PostInterface;
 import poster.model.Post;
-import poster.model.Title;
 import poster.repository.PosterRepository;
 
 public class PosterService implements PostInterface {
