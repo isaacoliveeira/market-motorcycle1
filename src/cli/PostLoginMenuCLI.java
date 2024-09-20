@@ -126,6 +126,7 @@ public class PostLoginMenuCLI {
                 Post selectedPost = posts.get(choice - 1);
                 //posterController.buyPost(selectedPost);
                 System.out.println("Você comprou o anúncio: " + selectedPost);
+                posts.remove(selectedPost);
             } else if (choice == 0) {
                 System.out.println("Saindo...");
             } else {
