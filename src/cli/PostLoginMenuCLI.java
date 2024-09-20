@@ -10,6 +10,7 @@ import poster.model.Post;
 import poster.model.Price;
 import poster.model.Title;
 import user.controller.UserController;
+import user.models.ProfileUsername;
 
 public class PostLoginMenuCLI {
 
@@ -17,6 +18,7 @@ public class PostLoginMenuCLI {
     private MainMenuCLI mainMenuCLI;
     private Scanner scanner;
     private PosterController posterController;
+    private ProfileUsername username;
 
     public PostLoginMenuCLI(UserController userController, MainMenuCLI mainMenuCLI, PosterController posterController) {
         this.userController = userController;
@@ -25,7 +27,8 @@ public class PostLoginMenuCLI {
         this.posterController = posterController;
     }
 
-    public void displayPostLoginMenu() throws Exception {
+    public void displayPostLoginMenu(ProfileUsername username) throws Exception {
+        this.username = username;
         while (true) {
             System.out.println("******* MENU PÓS-LOGIN *******");
             System.out.println("1. Anunciar");
@@ -78,7 +81,7 @@ public class PostLoginMenuCLI {
         Location location = new Location(newLocation);
         Description description = new Description(newDescription);
 
-        posterController.addPost(title, price, location, description); ////pra colocar o user que tá logado
+        posterController.addPost(title, price, location, description, username); ////pra colocar o user que tá logado
         System.out.println("ANÚNCIO CRIADO COM SUCESSO!");
     }
 
@@ -102,7 +105,6 @@ public class PostLoginMenuCLI {
         };
     }
 
-
     private void viewAllPosts() throws Exception {
         System.out.println("------ ANÚNCIOS DISPONÍVEIS ------");
         List<Post> posts = posterController.viewAllPosts();
@@ -113,15 +115,18 @@ public class PostLoginMenuCLI {
             for (int i = 0; i < posts.size(); i++) {
                 System.out.println((i + 1) + ". " + posts.get(i));
             }
-            System.out.println("Escolha o número do anúncio para comprar ou 0 para sair: ");
+            System.out.print("Escolha o número do anúncio para comprar ou 0 para sair: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
             if (choice > 0 && choice <= posts.size()) {
                 Post selectedPost = posts.get(choice - 1);
-                buyPost(selectedPost);
+                posterController.buyPost(selectedPost);
+                System.out.println("Você comprou o anúncio: " + selectedPost);
+            } else if (choice == 0) {
+                System.out.println("Saindo...");
             } else {
-                System.out.println("Voltando ao menu...");
+                System.out.println("Escolha inválida. Tente novamente.");
             }
         }
     }

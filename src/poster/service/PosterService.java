@@ -10,7 +10,7 @@ public class PosterService implements PostInterface {
     
     private PosterRepository posterRepository;
 
-    public PosterService() {
+    public PosterService(PosterRepository posterRepository) {
         this.posterRepository = new PosterRepository();
     }
 
@@ -35,8 +35,8 @@ public class PosterService implements PostInterface {
         throw new IllegalArgumentException("Post não foi encontrado");
     }
 
-    public List<Post> searchByTitle(String termo) {
-        return posterRepository.findPostsByTitle(termo);
+    public List<Post> search(String termo) {
+        return posterRepository.findPost(termo);
     }
 
     @Override
@@ -47,4 +47,5 @@ public class PosterService implements PostInterface {
     public List<Post> listPosts(){
         return posterRepository.getAllPosts();
     }
+
 }

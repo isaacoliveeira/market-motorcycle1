@@ -1,10 +1,9 @@
 package cli;
 
 import java.util.Scanner;
-
 import poster.controller.PosterController;
-import poster.repository.PosterRepository;
 import poster.service.PosterService;
+import poster.repository.PosterRepository;
 import user.controller.UserController;
 import user.models.ProfileName;
 import user.models.ProfileUsername;
@@ -15,6 +14,7 @@ public class MainMenuCLI {
     private UserController userController;
     private Scanner scanner;
     private boolean running;
+    private ProfileUsername username;
 
     public MainMenuCLI(UserController userController) {
         this.userController = userController;
@@ -23,6 +23,7 @@ public class MainMenuCLI {
     }
 
     public void displayMainMenu() throws Exception {
+        this.username = username;
         while (running) {
             System.out.println("******* MENU PRINCIPAL *******");
             System.out.println("\n1. Login");
@@ -62,45 +63,35 @@ public class MainMenuCLI {
         if (isLoginSuccessful) {
             System.out.println("\nLogin realizado com sucesso!");
     
-            // Exibir o menu pós-login
-            PosterService posterService = new PosterService();
+            // Criação do PosterRepository e PosterService
+            PosterRepository posterRepository = new PosterRepository();
+            PosterService posterService = new PosterService(posterRepository);
             PosterController posterController = new PosterController(posterService);
-            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this, posterController );
-
-            postLoginMenu.displayPostLoginMenu();
+    
+            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this, posterController);
+            postLoginMenu.displayPostLoginMenu(profileUsername);
         } else {
             System.out.println("\nFalha no login. Usuário ou senha incorretos.");
         }
     }
-    
+
     private void createUser() throws Exception {
-        boolean userCreated = false;
-        
-        while (!userCreated) {
-            try {
-                System.out.print("\nDigite seu nome: (Use apenas letras maiúsculas e/ou minúsculas)\n");
-                String name = scanner.nextLine();
-                System.out.print("\nDigite seu nome de usuário: (O nome de usuário deve começar com letra, ter no mínimo 4 letras e entre 0 e 4 números)\n");
-                String username = scanner.nextLine();
-                System.out.print("\nDigite sua senha: (Use pelo menos 6 letras, 1 caractere especial e 1 número)\n");
-                String password = scanner.nextLine();
-    
-                ProfileName profileName = new ProfileName(name);
-                ProfileUsername profileUsername = new ProfileUsername(username);
-                ProfilePassword profilePassword = new ProfilePassword(password);
-    
-               
-                userController.createUser(profileName, profileUsername, profilePassword);
-    
-                userCreated = true;
-                System.out.println("\nUsuário criado com sucesso!");
-                System.out.println();
-            } catch (Exception e) {
-                System.out.println("\nDados inválidos. Tente novamente.");
-            }
-        }
+        System.out.print("\nDigite seu nome: (Use apenas letras maiúsculas e/ou minúsculas)\n");
+        String name = scanner.nextLine();
+        System.out.print("\nDigite seu nome de usuário: (O nome de usuário deve começar com letra, ter no mínimo 4 letras e entre 0 e 4 números)\n");
+        String username = scanner.nextLine();
+        System.out.print("\nDigite sua senha: (Use pelo menos 6 letras, 1 caractere especial e 1 número)\n");
+        String password = scanner.nextLine();
+
+        ProfileName profileName = new ProfileName(name);
+        ProfileUsername profileUsername = new ProfileUsername(username);
+        ProfilePassword profilePassword = new ProfilePassword(password);
+
+        userController.createUser(profileName, profileUsername, profilePassword);
+        System.out.println("\nUsuário criado com sucesso!");
+        System.out.println();
     }
-    
+
     public void returnToMainMenu() throws Exception {
         displayMainMenu();
     }

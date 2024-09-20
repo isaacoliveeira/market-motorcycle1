@@ -27,15 +27,15 @@ public class PosterController {
         posterService.addPost(post);
     }
 
-    public Boolean selectPost(Title title) throws Exception {
-        List<Post> posts = posterService.searchByTitle(title);
-        if (!posts.isEmpty()) {
-            loggedPost = posts.get(0);
-            return true;
-        } else {
-            return false;
-        }
-    }
+    // public Boolean selectPost(String termo) throws Exception {
+    //     List<Post> posts = posterSerString termo(title);
+    //     if (!posts.isEmpty()) {
+    //         loggedPost = posts.get(0);
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
     public void updatePost(Title newTitle, Price newPrice, Location newLocation, Description newDescription, ProfileUsername username) throws Exception {
         if (loggedPost != null) {
@@ -54,8 +54,8 @@ public class PosterController {
         }
     }
 
-    public void searchByTitle(Title title) throws Exception {
-        List<Post> posts = posterService.searchByTitle(title);
+    public void search(String termo) throws Exception {
+        List<Post> posts = posterService.search(termo);
         if (posts.isEmpty()) {
             System.out.println("Nenhum post encontrado com o título fornecido.");
         } else {
