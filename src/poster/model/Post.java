@@ -54,6 +54,20 @@ public class Post {
         return price;
     }
 
+    
+
+    public Description getDescription() {
+        return description;
+    }
+
+
+
+    public void setDescription(Description description) {
+        this.description = description;
+    }
+
+
+
     public Post get(int index) {
         return get(index);
     }    

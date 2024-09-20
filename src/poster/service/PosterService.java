@@ -35,9 +35,8 @@ public class PosterService implements PostInterface {
         throw new IllegalArgumentException("Post não foi encontrado");
     }
 
-    @Override
-    public List<Post> searchByTitle(Title title) {
-        return posterRepository.findPostsByTitle(title);
+    public List<Post> searchByTitle(String termo) {
+        return posterRepository.findPostsByTitle(termo);
     }
 
     @Override

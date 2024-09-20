@@ -78,7 +78,7 @@ public class PostLoginMenuCLI {
         Location location = new Location(newLocation);
         Description description = new Description(newDescription);
 
-        posterController.addPost(title, price, location, description);
+        posterController.addPost(title, price, location, description); ////pra colocar o user que tá logado
         System.out.println("ANÚNCIO CRIADO COM SUCESSO!");
     }
 
