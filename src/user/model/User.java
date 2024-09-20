@@ -1,4 +1,4 @@
-package user.models;
+package user.model;
 
 public class User {
     private ProfileName name;

@@ -7,8 +7,8 @@ import poster.model.Price;
 import poster.model.Location;
 import poster.model.Description;
 import poster.service.PosterService;
-import user.models.ProfileUsername;
-import user.models.User;
+import user.model.ProfileUsername;
+import user.model.User;
 
 import java.util.List;
 
@@ -20,10 +20,12 @@ public class PosterController {
 
     public PosterController(PosterService posterService) {
         this.posterService = posterService;
+        this.posterRepository = PosterRepository.getInstance();
     }
 
     public void addPost(Title title, Price price, Location location, Description description, ProfileUsername username) throws Exception {
         Post post = new Post(title, price, location, description, username);
+        System.out.println(post.getTitle() + ";" + post.getPrice().getPrice()+ ";" + post.getLocation().getLocation() + ";" + post.getDescription());
         posterService.addPost(post);
     }
 

@@ -9,8 +9,9 @@ import poster.model.Location;
 import poster.model.Post;
 import poster.model.Price;
 import poster.model.Title;
+import poster.repository.PosterCSV;
 import user.controller.UserController;
-import user.models.ProfileUsername;
+import user.model.ProfileUsername;
 
 public class PostLoginMenuCLI {
 
@@ -83,6 +84,7 @@ public class PostLoginMenuCLI {
 
         posterController.addPost(title, price, location, description, username); ////pra colocar o user que tá logado
         System.out.println("ANÚNCIO CRIADO COM SUCESSO!");
+        PosterCSV.exportar();
     }
 
     private void buyPost(Post post) {
@@ -121,7 +123,7 @@ public class PostLoginMenuCLI {
 
             if (choice > 0 && choice <= posts.size()) {
                 Post selectedPost = posts.get(choice - 1);
-                posterController.buyPost(selectedPost);
+                //posterController.buyPost(selectedPost);
                 System.out.println("Você comprou o anúncio: " + selectedPost);
             } else if (choice == 0) {
                 System.out.println("Saindo...");

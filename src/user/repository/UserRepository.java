@@ -3,10 +3,10 @@ package user.repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import user.models.ProfileName;
-import user.models.ProfilePassword;
-import user.models.ProfileUsername;
-import user.models.User;
+import user.model.ProfileName;
+import user.model.ProfilePassword;
+import user.model.ProfileUsername;
+import user.model.User;
 
 public class UserRepository {
     List<User> users = new ArrayList<>();

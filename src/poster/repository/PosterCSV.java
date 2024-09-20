@@ -1,11 +1,6 @@
 package poster.repository;
-import poster.model.Description;
-import poster.model.Location;
-import poster.model.Post;
-import poster.model.Price;
-import poster.model.Title;
-import user.models.ProfileUsername;
-import user.models.User;
+import poster.model.*;
+import user.model.ProfileUsername;
 
 import java.io.*;
 
@@ -18,10 +13,10 @@ public class PosterCSV {
             Writer osw = new OutputStreamWriter(fos);
             BufferedWriter bw = new BufferedWriter(osw);
 
-            bw.write("title, price, location, description, username");
+            bw.write("title; price; location; description; username");
 
             for (Post post : posters.getAllPosts()) {
-                String escrevePost = post.getTitle() + ";" + post.getPrice()+ ";" + post.getLocation() + ";" + post.getDescription();
+                String escrevePost = post.getTitle().getTitle() + ";" + post.getPrice().getPrice() + ";" + post.getLocation().getLocation() + ";" + post.getDescription().getDescription();
                 bw.newLine();
                 bw.write(escrevePost);
             }

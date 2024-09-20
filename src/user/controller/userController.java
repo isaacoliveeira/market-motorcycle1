@@ -1,6 +1,6 @@
 package user.controller;
 
-import user.models.*;
+import user.model.*;
 import user.service.UserService;
 
 public class UserController {

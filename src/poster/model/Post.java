@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import user.models.ProfileUsername;
-import user.models.User;
+import user.model.ProfileUsername;
+import user.model.User;
 
 public class Post {
 

@@ -5,16 +5,15 @@ import poster.controller.PosterController;
 import poster.service.PosterService;
 import poster.repository.PosterRepository;
 import user.controller.UserController;
-import user.models.ProfileName;
-import user.models.ProfileUsername;
-import user.models.ProfilePassword;
+import user.model.ProfileName;
+import user.model.ProfilePassword;
+import user.model.ProfileUsername;
 
 public class MainMenuCLI {
 
     private UserController userController;
     private Scanner scanner;
     private boolean running;
-    private ProfileUsername username;
 
     public MainMenuCLI(UserController userController) {
         this.userController = userController;
@@ -23,7 +22,6 @@ public class MainMenuCLI {
     }
 
     public void displayMainMenu() throws Exception {
-        this.username = username;
         while (running) {
             System.out.println("******* MENU PRINCIPAL *******");
             System.out.println("\n1. Login");
@@ -64,8 +62,8 @@ public class MainMenuCLI {
             System.out.println("\nLogin realizado com sucesso!");
     
             // Criação do PosterRepository e PosterService
-            PosterRepository posterRepository = new PosterRepository();
-            PosterService posterService = new PosterService(posterRepository);
+            PosterRepository.getInstance();
+            PosterService posterService = new PosterService();
             PosterController posterController = new PosterController(posterService);
     
             PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this, posterController);

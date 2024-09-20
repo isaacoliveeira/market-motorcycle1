@@ -10,8 +10,8 @@ public class PosterService implements PostInterface {
     
     private PosterRepository posterRepository;
 
-    public PosterService(PosterRepository posterRepository) {
-        this.posterRepository = new PosterRepository();
+    public PosterService() {
+        this.posterRepository = PosterRepository.getInstance();
     }
 
     @Override

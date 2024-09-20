@@ -3,7 +3,7 @@ package user.validators;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import user.models.ProfilePassword;
+import user.model.ProfilePassword;
 
 public class PasswordValidator {
     static Pattern pattern = Pattern.compile("^(?=.*[a-zA-Z]{6,})(?=.*[0-9]{1,8})(?=.*[!@#$%^&*_-]).{8,}$");

@@ -1,6 +1,6 @@
 package user.service;
 
-import user.models.*;
+import user.model.*;
 import user.repository.UserRepository;
 import user.validators.PasswordValidator;
 import user.validators.UserValidator;

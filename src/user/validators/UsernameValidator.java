@@ -3,7 +3,7 @@ package user.validators;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import user.models.ProfileUsername;
+import user.model.ProfileUsername;
 
 public class UsernameValidator {
     static Pattern pattern = Pattern.compile("^[a-z]{4,}[0-9]{0,4}$");

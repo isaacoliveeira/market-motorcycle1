@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import poster.model.Post;
 import poster.model.Title;
-import user.models.ProfileUsername;
-import user.models.User;
+import user.model.ProfileUsername;
+import user.model.User;
 
 public class PosterRepository {
-    static List<Post> posters;
+    List<Post> posters;
     static PosterRepository instance;
 
     public PosterRepository() {

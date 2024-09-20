@@ -2,9 +2,9 @@ package cli;
 
 import java.util.Scanner;
 import user.controller.UserController;
-import user.models.ProfileName;
-import user.models.ProfilePassword;
-import user.models.ProfileUsername;
+import user.model.ProfileName;
+import user.model.ProfilePassword;
+import user.model.ProfileUsername;
 
 public class UserManagementCLI {
 
