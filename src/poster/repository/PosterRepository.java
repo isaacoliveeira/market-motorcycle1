@@ -40,20 +40,8 @@
             return posters.contains(post);
         }
 
-        public List<Post> findPostsByTitle(String termo) {
-            List<Post> result = new ArrayList<>();
-            for (Post post : posters) {
-                if (post.getTitle()
-                .toString()
-                .toLowerCase()
-                .contains(termo.toLowerCase()) 
-                ||post.getDescription().toString()
-                .toLowerCase()
-                .contains(termo.toLowerCase())) {
-                    result.add(post);
-                }
-            }
-            return result;
+        public List<Post> findPost(String termo) {
+            return FindPostRepository.findPosts(termo, posters);
         }
 
         public List<Post> getAllPosts() {

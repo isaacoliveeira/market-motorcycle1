@@ -1,17 +1,22 @@
 package poster.model;
 
 public class Description {
-    private String descrition;
+    private String description;
 
-    public Description(String descrition) {
-        this.descrition = descrition;
+    public Description(String description) {
+        this.description = description;
     }
 
     public String getDescription() {
-        return descrition;
+        return description;
     }
 
     public void setDescription(String descrition) {
-        this.descrition = descrition;
+        this.description = descrition;
     } 
+
+    @Override
+    public String toString() {
+        return description.toString();
+    }
 }
