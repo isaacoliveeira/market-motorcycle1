@@ -5,9 +5,10 @@ import user.model.ProfileUsername;
 import java.io.*;
 
 public class PosterCSV {
-    private static final PosterRepository posters = PosterRepository.getInstance();
+    private static PosterRepository posters;
 
     public static void exportar() {
+        posters = PosterRepository.getInstance();
         try {
             OutputStream fos = new FileOutputStream("poster.csv");
             Writer osw = new OutputStreamWriter(fos);
@@ -27,6 +28,7 @@ public class PosterCSV {
     }
 
     public static void importar() {
+        posters = PosterRepository.getInstance();
         try {
             InputStream is = new FileInputStream("poster.csv");
             Reader reader = new InputStreamReader(is);

@@ -3,6 +3,7 @@ package cli;
 import java.util.Scanner;
 import poster.controller.PosterController;
 import poster.service.PosterService;
+import poster.repository.PosterCSV;
 import poster.repository.PosterRepository;
 import user.controller.UserController;
 import user.model.ProfileName;

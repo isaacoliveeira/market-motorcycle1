@@ -1,16 +1,11 @@
 package poster.controller;
 
-import poster.model.Post;
-import poster.model.Title;
 import poster.repository.PosterRepository;
-import poster.model.Price;
-import poster.model.Location;
-import poster.model.Description;
+import poster.model.*;
 import poster.service.PosterService;
 import user.model.ProfileUsername;
-import user.model.User;
 
-import java.util.List;
+import java.util.*;
 
 public class PosterController {
 
@@ -67,23 +62,25 @@ public class PosterController {
         }
     }
 
-    public void buyPost() throws Exception {
+    /*public void buyPost() throws Exception {
         if (loggedPost != null) {
             posterService.buy(loggedPost);
         } else {
             throw new Exception("Nenhum post selecionado para compra.");
         }
-    }
+    }*/
 
-    public List<Post> listMyPosts() throws Exception {
-        return posterService.listPosts();
+    public List<Post> listMyPosts(ProfileUsername username) throws Exception {
+        List<Post> postUser = new ArrayList<>();
+        for(Post post : posterService.listPosts()){
+            if(post.getUsername().equals(username)){
+                postUser.add(post);
+            }
+        }
+        return postUser;
     }
 
     public List<Post> viewAllPosts() {
-        return posterRepository.getAllPosts();
-    }
-
-    public List<Post> getPostsByUser(User user) {
-        return posterRepository.getPostsByUser(user);
+        return posterService.listPosts();
     }
 }

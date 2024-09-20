@@ -29,6 +29,7 @@ public class PostLoginMenuCLI {
     }
 
     public void displayPostLoginMenu(ProfileUsername username) throws Exception {
+        PosterCSV.importar(); //////////////////////////////////////????????????????????????????????????/
         this.username = username;
         while (true) {
             System.out.println("******* MENU PÓS-LOGIN *******");
@@ -47,7 +48,7 @@ public class PostLoginMenuCLI {
                     createPost();
                     break;
                 case 2:
-                    listPosts();
+                    listMyPosts(username);
                     break;
                 case 3:
                     viewAllPosts();
@@ -100,9 +101,9 @@ public class PostLoginMenuCLI {
         }
     }
 
-    private void listPosts() throws Exception {
+    private void listMyPosts(ProfileUsername username) throws Exception {
         System.out.println("------LISTA DE POSTS------");
-        for(Post post : posterController.listMyPosts()){
+        for(Post post : posterController.listMyPosts(username)){
             System.out.println(post.toString());
         };
     }
