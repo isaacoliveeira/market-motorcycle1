@@ -28,16 +28,17 @@ public class PosterCSV {
     }
 
     public static void importar() {
-        posters = PosterRepository.getInstance();
         try {
             InputStream is = new FileInputStream("poster.csv");
             Reader reader = new InputStreamReader(is);
             BufferedReader bufReader = new BufferedReader(reader);
             String line = null;
-
-            bufReader.readLine();
+    
+            bufReader.readLine(); 
+    
             while ((line = bufReader.readLine()) != null) {
                 String[] data = line.split(";");
+<<<<<<< HEAD
                 Title title = new Title(data[0]);
                 Price price = new Price(Integer.parseInt(data[1]));
                 Location local = new Location(data[2]);
@@ -46,10 +47,27 @@ public class PosterCSV {
 
                 Post post = new Post(title, price, local, description, username);
                 posters.addPost(post);
+=======
+                
+                
+                if (data.length == 5) {
+                    Title title = new Title(data[0]);
+                    Price price = new Price(Integer.parseInt(data[1]));
+                    Location location = new Location(data[2]);
+                    Description description = new Description(data[3]);
+                    ProfileUsername username = new ProfileUsername(data[4]);
+    
+                    Post post = new Post(title, price, location, description, username);
+                    posters.addPost(post);
+                } else {
+                    System.out.println(line);
+                }
+>>>>>>> acfb79aee317660a54d4bd259834fdbeeff5b5e3
             }
         bufReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
 }

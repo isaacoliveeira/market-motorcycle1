@@ -1,3 +1,7 @@
 title; price; location; description; username
+<<<<<<< HEAD
 pop 110;15;massabiele;muito boa, piscando e buzinando;jefo1
 fan 150;15000;remigio;muito boa;jefo1
+=======
+pop 100;8000;ldr;boa toda
+>>>>>>> acfb79aee317660a54d4bd259834fdbeeff5b5e3

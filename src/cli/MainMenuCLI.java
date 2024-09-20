@@ -48,28 +48,50 @@ public class MainMenuCLI {
     }
 
     private void loginUser() throws Exception {
-        System.out.print("\nDigite seu nome de usuário: ");
-        String username = scanner.nextLine();
-        System.out.print("Digite sua senha: ");
-        String password = scanner.nextLine();
+        boolean isLoginSuccessful = false;
     
-        ProfileUsername profileUsername = new ProfileUsername(username);
-        ProfilePassword profilePassword = new ProfilePassword(password);
+        while (!isLoginSuccessful) {
+            System.out.print("\nDigite seu nome de usuário: ");
+            String username = scanner.nextLine();
+            System.out.print("Digite sua senha: ");
+            String password = scanner.nextLine();
     
-        boolean isLoginSuccessful = userController.loginUser(profileUsername, profilePassword);
+            ProfileUsername profileUsername = new ProfileUsername(username);
+            ProfilePassword profilePassword = new ProfilePassword(password);
     
+<<<<<<< HEAD
         if (isLoginSuccessful) {
             System.out.println("\nLogin realizado com sucesso!");
             PosterRepository.getInstance();
             PosterService posterService = new PosterService();
             PosterController posterController = new PosterController(posterService);
+=======
+            isLoginSuccessful = userController.loginUser(profileUsername, profilePassword);
     
-            PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this, posterController);
-            postLoginMenu.displayPostLoginMenu(profileUsername);
-        } else {
-            System.out.println("\nFalha no login. Usuário ou senha incorretos.");
+            if (isLoginSuccessful) {
+                System.out.println("\nLogin realizado com sucesso!");
+>>>>>>> acfb79aee317660a54d4bd259834fdbeeff5b5e3
+    
+                // Criação do PosterRepository e PosterService
+                PosterRepository.getInstance();
+                PosterService posterService = new PosterService();
+                PosterController posterController = new PosterController(posterService);
+    
+                PostLoginMenuCLI postLoginMenu = new PostLoginMenuCLI(userController, this, posterController);
+                postLoginMenu.displayPostLoginMenu(profileUsername);
+            } else {
+                System.out.println("\nFalha no login. Usuário ou senha incorretos.");
+                System.out.print("Deseja tentar novamente? (s/n): ");
+                String tryAgain = scanner.nextLine();
+                
+                if (tryAgain.equalsIgnoreCase("n")) {
+                    System.out.println("Saindo do login...");
+                    break; // Sai do loop e retorna ao menu principal
+                }
+            }
         }
     }
+    
 
     private void createUser() throws Exception {
         System.out.print("\nDigite seu nome: (Use apenas letras maiúsculas e/ou minúsculas)\n");
