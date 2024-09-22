@@ -59,20 +59,11 @@ public class MainMenuCLI {
             ProfileUsername profileUsername = new ProfileUsername(username);
             ProfilePassword profilePassword = new ProfilePassword(password);
     
-<<<<<<< HEAD
-        if (isLoginSuccessful) {
-            System.out.println("\nLogin realizado com sucesso!");
-            PosterRepository.getInstance();
-            PosterService posterService = new PosterService();
-            PosterController posterController = new PosterController(posterService);
-=======
             isLoginSuccessful = userController.loginUser(profileUsername, profilePassword);
     
             if (isLoginSuccessful) {
                 System.out.println("\nLogin realizado com sucesso!");
->>>>>>> acfb79aee317660a54d4bd259834fdbeeff5b5e3
     
-                // Criação do PosterRepository e PosterService
                 PosterRepository.getInstance();
                 PosterService posterService = new PosterService();
                 PosterController posterController = new PosterController(posterService);
@@ -86,7 +77,7 @@ public class MainMenuCLI {
                 
                 if (tryAgain.equalsIgnoreCase("n")) {
                     System.out.println("Saindo do login...");
-                    break; // Sai do loop e retorna ao menu principal
+                    break; 
                 }
             }
         }

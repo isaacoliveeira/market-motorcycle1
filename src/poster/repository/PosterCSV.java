@@ -38,17 +38,6 @@ public class PosterCSV {
     
             while ((line = bufReader.readLine()) != null) {
                 String[] data = line.split(";");
-<<<<<<< HEAD
-                Title title = new Title(data[0]);
-                Price price = new Price(Integer.parseInt(data[1]));
-                Location local = new Location(data[2]);
-                Description description = new Description(data[3]);
-                ProfileUsername username = new ProfileUsername(data[4]);
-
-                Post post = new Post(title, price, local, description, username);
-                posters.addPost(post);
-=======
-                
                 
                 if (data.length == 5) {
                     Title title = new Title(data[0]);
@@ -62,7 +51,6 @@ public class PosterCSV {
                 } else {
                     System.out.println(line);
                 }
->>>>>>> acfb79aee317660a54d4bd259834fdbeeff5b5e3
             }
         bufReader.close();
         } catch (IOException e) {

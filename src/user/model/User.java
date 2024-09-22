@@ -29,22 +29,18 @@ public class User {
         }
     }
 
-    // Método para verificar se o usuário corresponde ao perfil fornecido
     public boolean matches(User user) {
         return this.matches(user.username);
     }
 
-    // Método para verificar se o usuário corresponde ao perfil fornecido
     public boolean matches(ProfileUsername username) {
         return this.username.equals(username);
     }
 
-    // Método para verificar se o usuário corresponde ao perfil fornecido
     public boolean matches(ProfileName name) {
         return this.name.equals(name);
     }
 
-    // Método para verificar se o usuário corresponde ao perfil fornecido
     public boolean matches(ProfilePassword password) {
         return this.password.equals(password);
     }
