@@ -1,9 +1,11 @@
 package com.example.cli;
 
+import java.sql.Connection;
 import java.util.Scanner;
 import com.example.poster.controller.PosterController;
 import com.example.poster.service.PosterService;
 import com.example.poster.repository.PosterRepository;
+import com.example.user.Connection.Conexao;
 import com.example.user.controller.UserController;
 import com.example.user.model.ProfileName;
 import com.example.user.model.ProfilePassword;
@@ -58,6 +60,13 @@ public class MainMenuCLI {
     
             ProfileUsername profileUsername = new ProfileUsername(username);
             ProfilePassword profilePassword = new ProfilePassword(password);
+
+            try (Connection connection = Conexao.getConnection()) {
+                isLoginSuccessful = userController.loginUser(profileUsername, profilePassword, connection);
+            } catch (Exception e) {
+                System.out.println("\nErro ao conectar ao banco de dados: " + e.getMessage());
+                break;
+            }
     
             isLoginSuccessful = userController.loginUser(profileUsername, profilePassword);
     
