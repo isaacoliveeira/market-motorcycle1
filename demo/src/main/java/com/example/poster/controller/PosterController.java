@@ -1,8 +1,8 @@
-package poster.controller;
+package com.example.poster.controller;
 
-import poster.model.*;
-import poster.service.PosterService;
-import user.model.ProfileUsername;
+import com.example.poster.model.*;
+import com.example.poster.service.PosterService;
+import com.example.user.model.ProfileUsername;
 
 import java.util.*;
 

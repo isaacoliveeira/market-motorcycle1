@@ -1,4 +1,5 @@
-package user.model;
+package com.example.user.model;
+
 
 public class ProfileName {
 

@@ -1,9 +1,9 @@
-package poster.service;
+package com.example.poster.service;
 
 import java.util.List;
-import interfaces.PostInterface;
-import poster.model.Post;
-import poster.repository.PosterRepository;
+import com.example.interfaces.PostInterface;
+import com.example.poster.model.Post;
+import com.example.poster.repository.PosterRepository;
 
 public class PosterService implements PostInterface {
     

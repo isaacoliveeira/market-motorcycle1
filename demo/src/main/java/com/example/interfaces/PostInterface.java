@@ -1,7 +1,7 @@
-package interfaces;
+package com.example.interfaces;
 
 import java.util.List;
-import poster.model.Post;
+import com.example.poster.model.Post;
 
 public interface PostInterface {
     void addPost(Post post);

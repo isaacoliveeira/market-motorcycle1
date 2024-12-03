@@ -1,10 +1,10 @@
-package cli;
+package com.example.cli;
 
 import java.util.Scanner;
-import user.controller.UserController;
-import user.model.ProfileName;
-import user.model.ProfilePassword;
-import user.model.ProfileUsername;
+import com.example.user.controller.UserController;
+import com.example.user.model.ProfileName;
+import com.example.user.model.ProfilePassword;
+import com.example.user.model.ProfileUsername;
 
 public class UserManagementCLI {
 

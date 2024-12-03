@@ -1,9 +1,9 @@
-package user.validators;
+package com.example.user.validators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import user.model.ProfileName;
+import com.example.user.model.ProfileName;
 
 public class NameValidator {
     static Pattern pattern = Pattern.compile("^[a-zA-Z]{2,}(?: [a-zA-Z]*)*$");

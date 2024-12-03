@@ -1,9 +1,9 @@
-package user.validators;
+package com.example.user.validators;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import user.model.ProfileUsername;
+import com.example.user.model.ProfileUsername;
 
 public class UsernameValidator {
     static Pattern pattern = Pattern.compile("^[a-z]{4,}[0-9]{0,4}$");

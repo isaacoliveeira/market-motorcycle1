@@ -1,6 +1,6 @@
-package poster.repository;
-import poster.model.*;
-import user.model.ProfileUsername;
+package com.example.poster.repository;
+import com.example.poster.model.*;
+import com.example.user.model.ProfileUsername;
 
 import java.io.*;
 

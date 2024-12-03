@@ -1,5 +1,5 @@
-package user.repository;
-import user.model.*;
+package com.example.user.repository;
+import com.example.user.model.*;
 
 import java.io.*;
 

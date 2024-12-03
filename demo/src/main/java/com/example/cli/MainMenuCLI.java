@@ -1,13 +1,13 @@
-package cli;
+package com.example.cli;
 
 import java.util.Scanner;
-import poster.controller.PosterController;
-import poster.service.PosterService;
-import poster.repository.PosterRepository;
-import user.controller.UserController;
-import user.model.ProfileName;
-import user.model.ProfilePassword;
-import user.model.ProfileUsername;
+import com.example.poster.controller.PosterController;
+import com.example.poster.service.PosterService;
+import com.example.poster.repository.PosterRepository;
+import com.example.user.controller.UserController;
+import com.example.user.model.ProfileName;
+import com.example.user.model.ProfilePassword;
+import com.example.user.model.ProfileUsername;
 
 public class MainMenuCLI {
 

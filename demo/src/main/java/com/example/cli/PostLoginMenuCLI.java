@@ -1,17 +1,19 @@
-package cli;
+package com.example.cli;
+
+
 
 import java.util.List;
 import java.util.Scanner;
 
-import poster.controller.PosterController;
-import poster.model.Description;
-import poster.model.Location;
-import poster.model.Post;
-import poster.model.Price;
-import poster.model.Title;
-import poster.repository.PosterCSV;
-import user.controller.UserController;
-import user.model.ProfileUsername;
+import com.example.poster.controller.PosterController;
+import com.example.poster.model.Description;
+import com.example.poster.model.Location;
+import com.example.poster.model.Post;
+import com.example.poster.model.Price;
+import com.example.poster.model.Title;
+import com.example.poster.repository.PosterCSV;
+import com.example.user.controller.UserController;
+import com.example.user.model.ProfileUsername;
 
 public class PostLoginMenuCLI {
 

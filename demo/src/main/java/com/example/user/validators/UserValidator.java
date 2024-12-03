@@ -1,6 +1,6 @@
-package user.validators;
+package com.example.user.validators;
 
-import user.model.*;
+import com.example.user.model.*;
 
 public class UserValidator {
 

@@ -1,6 +1,6 @@
-package poster.validators;
+package com.example.poster.validators;
 
-import poster.model.Title;
+import com.example.poster.model.Title;
 
 public class TitleValidator {
     public static boolean titleValidator(Title title){

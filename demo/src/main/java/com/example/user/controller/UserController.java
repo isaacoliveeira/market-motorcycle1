@@ -1,7 +1,7 @@
-package user.controller;
+package com.example.user.controller;
 
-import user.model.*;
-import user.service.UserService;
+import com.example.user.model.*;
+import com.example.user.service.UserService;
 
 public class UserController {
 

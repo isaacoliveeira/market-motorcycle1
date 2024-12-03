@@ -1,4 +1,4 @@
-package poster.model;
+package com.example.poster.model;
 
 public class Title {
     public String title;

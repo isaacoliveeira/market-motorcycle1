@@ -1,6 +1,6 @@
-package poster.model;
+package com.example.poster.model;
 
-import user.model.ProfileUsername;
+import com.example.user.model.ProfileUsername;
 
 public class Post {
 

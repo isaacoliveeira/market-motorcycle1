@@ -1,12 +1,12 @@
-package user.repository;
+package com.example.user.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import user.model.ProfileName;
-import user.model.ProfilePassword;
-import user.model.ProfileUsername;
-import user.model.User;
+import com.example.user.model.ProfileName;
+import com.example.user.model.ProfilePassword;
+import com.example.user.model.ProfileUsername;
+import com.example.user.model.User;
 
 public class UserRepository {
     List<User> users;

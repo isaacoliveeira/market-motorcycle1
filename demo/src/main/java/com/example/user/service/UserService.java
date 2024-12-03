@@ -1,10 +1,10 @@
-package user.service;
+package com.example.user.service;
 
-import user.model.*;
-import user.repository.UserRepository;
-import user.validators.PasswordValidator;
-import user.validators.UserValidator;
-import user.validators.UsernameValidator;
+import com.example.user.model.*;
+import com.example.user.repository.UserRepository;
+import com.example.user.validators.PasswordValidator;
+import com.example.user.validators.UserValidator;
+import com.example.user.validators.UsernameValidator;
 
 public class UserService {
 

@@ -1,8 +1,8 @@
-package interfaces;
+package com.example.interfaces;
 
-import user.model.ProfileName;
-import user.model.ProfilePassword;
-import user.model.ProfileUsername;
+import com.example.user.model.ProfileName;
+import com.example.user.model.ProfilePassword;
+import com.example.user.model.ProfileUsername;
 
 
 public interface ProfileInterface {

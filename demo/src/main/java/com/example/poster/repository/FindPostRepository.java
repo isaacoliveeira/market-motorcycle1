@@ -1,9 +1,9 @@
-package poster.repository;
+package com.example.poster.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import poster.model.*;
+import com.example.poster.model.*;
 
 public class FindPostRepository {
     public static List<Post> findPosts(String termo, List<Post> posters) {

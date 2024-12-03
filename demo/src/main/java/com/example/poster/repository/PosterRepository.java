@@ -1,8 +1,8 @@
-package poster.repository;
+package com.example.poster.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import poster.model.Post;
+import com.example.poster.model.Post;
 
 public class PosterRepository {
     List<Post> posters;
